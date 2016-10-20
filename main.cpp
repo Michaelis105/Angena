@@ -13,3 +13,15 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
+
+// Program Structure
+// main
+//      -angena
+//          -model
+//              -clipboard
+//              -familytree
+//                  -person
+//                      -node
+//          -writer
+//          -dialogs
+//          -graphicview

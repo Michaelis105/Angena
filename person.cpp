@@ -5,6 +5,7 @@
 //============================================================================
 #include "person.h"
 
+// A person is an implementation of a node
 person::person()
 {
 

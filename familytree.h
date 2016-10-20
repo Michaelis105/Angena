@@ -7,11 +7,16 @@
 #ifndef FAMILYTREE_H
 #define FAMILYTREE_H
 
+#include "person.h"
 
 class familytree
 {
-public:
-    familytree();
+    private:
+        int numberPerson;
+        person *curSelPerson;
+        person * persons[];
+    public:
+        familytree();
 };
 
 #endif // FAMILYTREE_H
