@@ -19,7 +19,7 @@ SOURCES += main.cpp\
     person.cpp \
     dialog.cpp \
     writer.cpp \
-    node.cpp
+    person_node.cpp
 
 HEADERS  += angena.h \
     model.h \
@@ -27,8 +27,9 @@ HEADERS  += angena.h \
     person.h \
     dialog.h \
     writer.h \
-    node.h
+    person_node.h
 
 FORMS    += angena.ui \
     aboutdialog.ui \
-    dialog.ui
+    dialog.ui \
+    newfamilytree.ui

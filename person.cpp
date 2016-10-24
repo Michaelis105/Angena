@@ -5,8 +5,15 @@
 //============================================================================
 #include "person.h"
 
-// A person is an implementation of a node
-person::person()
-{
+// No names provided.
+person::person() {
 
 }
+
+// Names provided.
+/*
+person::person(char * name) {
+
+} */
+
+

@@ -3,7 +3,6 @@
 // Author      : Michael Louie
 // Description : Header for the Angena model.
 //============================================================================
-
 #ifndef MODEL_H
 #define MODEL_H
 
@@ -13,6 +12,7 @@
 class model
 {
     private:
+        person_node * curSelPerson;
         familytree curft;
 
     public:

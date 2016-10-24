@@ -1,16 +1,12 @@
 //============================================================================
-// Name        : writer.h
+// Name        : person_node.cpp
 // Author      : Michael Louie
-// Description : Header for the writer class
+// Description : Node containing a person and the relationships with other
+//               people.
 //============================================================================
+#include "person_node.h"
 
-#ifndef WRITER_H
-#define WRITER_H
-
-class writer
+person_node::person_node()
 {
-    public:
-        writer();
-};
 
-#endif // WRITER_H
+}
