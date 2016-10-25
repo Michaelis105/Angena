@@ -8,12 +8,14 @@
 
 // The model contains a family tree to operate on when a UI event occurs.
 #include "familytree.h"
+#include <deque>
 
 class model
 {
     private:
         person_node * curSelPerson;
         familytree curft;
+        std::deque<person_node> clipboard;
 
     public:
         model();

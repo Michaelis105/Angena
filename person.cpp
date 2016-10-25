@@ -17,3 +17,12 @@ person::person(char * name) {
 } */
 
 
+/*
+ * name
+ * born date
+ * gender
+ * status: alive/deceased
+ *
+ * others:
+ *
+ *

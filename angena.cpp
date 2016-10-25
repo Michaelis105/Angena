@@ -83,16 +83,6 @@ void Angena::on_actionSave_As_triggered()
 }
 
 /*
- * Displays dialog regarding simple information about Angena.
- */
-void Angena::on_actionAbout_triggered()
-{
-    aboutDialog ad;
-    ad.setModal(true);
-    ad.exec();
-}
-
-/*
  * Closes currently opened family tree
  */
 void Angena::on_actionClose_triggered()
@@ -119,7 +109,6 @@ void Angena::on_actionRecent_Files_triggered()
     // Open the tree state, update model tree state.
     // Update display
 }
-
 
 /*
  * Prints current tree state visualization.
@@ -150,12 +139,110 @@ void Angena::on_actionPreferences_triggered()
     // show the preferences dialog.
 }
 
+/*
+ * Displays dialog regarding simple information about Angena.
+ */
+void Angena::on_actionAbout_triggered()
+{
+    aboutDialog ad;
+    ad.setModal(true);
+    ad.exec();
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Tool button actions
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-// TODO: Describe other tool button methods.
+/*
+ * Reverts to previous tree state before change.
+ */
+void Angena::on_actionUndo_triggered()
+{
+    qInfo() << "Undo!";
+}
 
+/*
+ * Returns tree state to next more recent version. Usually after undone.
+ */
+void Angena::on_actionRedo_triggered()
+{
+    qInfo() << "Redo!";
+}
 
+/*
+ * Removes person from tree state and commits to internal clipboard.
+ */
+void Angena::on_actionCut_triggered()
+{
+    qInfo() << "Cut!";
+}
+
+/*
+ * Commits selected person from tree state to internal clipboard.
+ */
+void Angena::on_actionCopy_triggered()
+{
+    qInfo() << "Copy!";
+}
+
+/*
+ * Removes person from tree state and commits to internal clipboard.
+ * Pre: Clipboard not null (prior cut/copy).
+ */
+void Angena::on_actionPaste_triggered()
+{
+    qInfo() << "Paste!";
+}
+
+/*
+ * Adds new person to the current tree state.
+ */
+void Angena::on_actionAdd_Person_triggered()
+{
+    qInfo() << "Add!";
+}
+
+/*
+ * Removes selected person from the current tree state.
+ */
+void Angena::on_actionRemove_Person_triggered()
+{
+    qInfo() << "Remove!";
+}
+
+/*
+ * Edits selected person in the current tree state.
+ */
+void Angena::on_actionEdit_Person_triggered()
+{
+    qInfo() << "Edit!";
+}
+
+/*
+ * Changes graphic view to display tree state in pedigree format.
+ */
+void Angena::on_actionPedigree_triggered()
+{
+    qInfo() << "Pedigree!";
+    // Referencing model, implement pedigree logic here.
+}
+
+/*
+ * Changes graphic view to display tree state in hyperbolic format.
+ */
+void Angena::on_actionHyperbolic_triggered()
+{
+    qInfo() << "Hyper!";
+    // Referencing model, implement hyperbolic logic here.
+}
+
+/*
+ * Changes graphic view to display tree state in fan format.
+ */
+void Angena::on_actionFan_triggered()
+{
+    qInfo() << "Fan!";
+    // Referencing model, implement fan logic here.
+}
