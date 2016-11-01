@@ -18,18 +18,16 @@ SOURCES += main.cpp\
     familytree.cpp \
     person.cpp \
     dialog.cpp \
-    writer.cpp \
     person_node.cpp \
-    reader.cpp
+    file_io.cpp
 
 HEADERS  += angena.h \
     model.h \
     familytree.h \
     person.h \
     dialog.h \
-    writer.h \
     person_node.h \
-    reader.h
+    file_io.h
 
 FORMS    += angena.ui \
     aboutdialog.ui \

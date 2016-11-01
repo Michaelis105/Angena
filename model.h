@@ -8,8 +8,7 @@
 
 // The model contains a family tree to operate on when a UI event occurs.
 #include "familytree.h"
-#include "writer.h"
-#include "reader.h"
+#include "file_io.h"
 #include <deque>
 
 class model

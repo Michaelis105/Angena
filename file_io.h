@@ -1,16 +1,17 @@
 //============================================================================
-// Name        : writer.h
+// Name        : file_io.h
 // Author      : Michael Louie
-// Description : Header for the writer class
+// Description : Header for the file input/output.
 //============================================================================
 
-#ifndef WRITER_H
-#define WRITER_H
+#ifndef FILE_IO_H
+#define FILE_IO_H
+#include <fstream>
 
-class writer
+class file_io
 {
-    public:
-        writer();
+public:
+    file_io();
 };
 
-#endif // WRITER_H
+#endif // FILE_IO_H

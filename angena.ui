@@ -37,7 +37,7 @@
      <x>0</x>
      <y>0</y>
      <width>1004</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -61,9 +61,6 @@
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
-    <addaction name="actionCut"/>
-    <addaction name="actionCopy"/>
-    <addaction name="actionPaste"/>
     <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -85,11 +82,8 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
-   <addaction name="actionPaste"/>
-   <addaction name="actionCut"/>
-   <addaction name="actionCopy"/>
    <addaction name="separator"/>
    <addaction name="actionAdd_Person"/>
    <addaction name="actionRemove_Person"/>
@@ -152,21 +146,6 @@
   <action name="actionRedo">
    <property name="text">
     <string>Redo</string>
-   </property>
-  </action>
-  <action name="actionCut">
-   <property name="text">
-    <string>Cut</string>
-   </property>
-  </action>
-  <action name="actionCopy">
-   <property name="text">
-    <string>Copy</string>
-   </property>
-  </action>
-  <action name="actionPaste">
-   <property name="text">
-    <string>Paste</string>
    </property>
   </action>
   <action name="actionAdd_Person">
