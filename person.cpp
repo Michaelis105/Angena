@@ -25,4 +25,4 @@ person::person(char * name) {
  *
  * others:
  *
- *
+ */

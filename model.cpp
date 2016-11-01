@@ -4,11 +4,15 @@
 // Description : Model containing logic for operating on family tree object.
 //============================================================================
 #include "model.h"
-#include "familytree.h"
+
 model::model() {
     person_node * curSelPerson = nullptr;
+    person_node * clipboard;
     familytree curft;
-    std::deque<person_node> clipboard;
+    //std::deque<> history;
+    reader r;
+    writer w;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,7 +41,7 @@ bool model::delPerson() {
 }
 
 /*
- * Connect a relationship between two persons.
+ * Changes the information pertaining to a specific person..
  * Input: person -
  *        field  -
  *        data   -
@@ -47,7 +51,7 @@ bool model::editPerson() {
 }
 
 /*
- * Connect a relationship between two persons.
+ * Connects a relationship between two persons.
  * Input: person1, person2
  */
 bool model::connectPerson() {
@@ -56,17 +60,55 @@ bool model::connectPerson() {
 }
 
 /*
- * Disconnect the relationship between two persons.
+ * Disconnects the relationship between two persons.
  * Input: person1, person2
  */
 bool model::disconnectPerson() {
     return false;
 }
 
+/*
+ * Clears the stored tree state.
+ */
+void model::clearTreeState() {
+
+}
+
+/*
+ * Opens a tree state (from an existing file).
+ */
+void model::openTreeState() {
+
+}
+
+/*
+ * Commits the stored tree state to a file.
+ */
+void model::saveTreeState() {
+
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Clipboard functions
 //
 ///////////////////////////////////////////////////////////////////////////////
+
+/*
+ * Reverts tree state to a previous version based on a previous stored user's action.
+ */
+void model::undo() {
+
+}
+
+/*
+ * Reverts tree state to a newest version based on an undone stored user's action.
+ */
+void model::redo() {
+
+}
+
+
 
 

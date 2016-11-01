@@ -7,7 +7,7 @@
 #include "ui_angena.h"
 #include "dialog.h"
 #include "model.h"
-#include "writer.h"
+
 #include <QFileDialog>
 // TODO: Get rid of debugging include at release.
 #include <QDebug>
@@ -16,7 +16,7 @@ Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
 {
     ui->setupUi(this);
     model m;
-    writer w;
+    // open settings file
 }
 
 Angena::~Angena()
@@ -169,31 +169,6 @@ void Angena::on_actionUndo_triggered()
 void Angena::on_actionRedo_triggered()
 {
     qInfo() << "Redo!";
-}
-
-/*
- * Removes person from tree state and commits to internal clipboard.
- */
-void Angena::on_actionCut_triggered()
-{
-    qInfo() << "Cut!";
-}
-
-/*
- * Commits selected person from tree state to internal clipboard.
- */
-void Angena::on_actionCopy_triggered()
-{
-    qInfo() << "Copy!";
-}
-
-/*
- * Removes person from tree state and commits to internal clipboard.
- * Pre: Clipboard not null (prior cut/copy).
- */
-void Angena::on_actionPaste_triggered()
-{
-    qInfo() << "Paste!";
 }
 
 /*

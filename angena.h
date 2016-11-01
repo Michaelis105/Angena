@@ -39,19 +39,11 @@ class Angena : public QMainWindow
 
         void on_actionExit_triggered();
 
-
-
         void on_actionPreferences_triggered();
 
         void on_actionUndo_triggered();
 
         void on_actionRedo_triggered();
-
-        void on_actionCut_triggered();
-
-        void on_actionCopy_triggered();
-
-        void on_actionPaste_triggered();
 
         void on_actionAdd_Person_triggered();
 

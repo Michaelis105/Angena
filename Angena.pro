@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     person.cpp \
     dialog.cpp \
     writer.cpp \
-    person_node.cpp
+    person_node.cpp \
+    reader.cpp
 
 HEADERS  += angena.h \
     model.h \
@@ -27,7 +28,8 @@ HEADERS  += angena.h \
     person.h \
     dialog.h \
     writer.h \
-    person_node.h
+    person_node.h \
+    reader.h
 
 FORMS    += angena.ui \
     aboutdialog.ui \
