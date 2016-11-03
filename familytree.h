@@ -12,7 +12,6 @@ class familytree
 {
     private:
         int numberPerson;
-
         person_node * persons[];
     public:
         familytree();

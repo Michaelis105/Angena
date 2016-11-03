@@ -7,6 +7,10 @@
 #define ANGENA_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include "ui_angena.h"
+#include "dialog.h"
+#include "model.h"
 
 namespace Ui {
 class Angena;

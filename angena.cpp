@@ -4,11 +4,6 @@
 // Description : Primary controller for primary UI window.
 //============================================================================
 #include "angena.h"
-#include "ui_angena.h"
-#include "dialog.h"
-#include "model.h"
-
-#include <QFileDialog>
 // TODO: Get rid of debugging include at release.
 #include <QDebug>
 

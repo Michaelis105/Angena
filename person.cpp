@@ -10,11 +10,10 @@ person::person() {
 
 }
 
-// Names provided.
-/*
-person::person(char * name) {
+person::updatePerson() {
 
-} */
+}
+
 
 
 /*

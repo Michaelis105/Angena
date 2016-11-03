@@ -7,6 +7,9 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include "ui_aboutdialog.h"
+#include "ui_dialog.h"
+#include "ui_newfamilytree.h"
 
 namespace Ui {
     class Dialog;

@@ -11,6 +11,7 @@
 class person_node
 {
     private:
+        unsigned int id;
         person p;
         // vector or something to store children
         // vector or something for parent.

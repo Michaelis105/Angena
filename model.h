@@ -18,8 +18,6 @@ class model
         person_node * clipboard;
         familytree curft;
         //std::deque<> history;
-        reader r;
-        writer w;
 
     public:
         model();
