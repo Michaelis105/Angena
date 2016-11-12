@@ -31,7 +31,7 @@ class model
         void clearTreeState();
         void openTreeState();
         void saveTreeState();
-
+        bool isTreeOpen();
 };
 
 #endif // MODEL_H

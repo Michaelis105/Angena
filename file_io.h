@@ -10,13 +10,13 @@
 
 class file_io
 {
-public:
-    file_io();
+    public:
+        file_io();
 
-    void open_file(char * file_path);
+        void open_file(char * file_path);
 
-    void close_file();
+        void close_file();
 
-    void save_file();
-};
+        void save_file();
+    };
 #endif // FILE_IO_H

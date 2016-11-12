@@ -4,9 +4,6 @@
 // Description : Contains logic for all dialog-related UIs.
 //============================================================================
 #include "dialog.h"
-#include "ui_aboutdialog.h"
-#include "ui_dialog.h"
-#include "ui_newfamilytree.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),

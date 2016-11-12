@@ -4,20 +4,16 @@
 // Description : Primary controller for primary UI window.
 //============================================================================
 #include "angena.h"
-// TODO: Get rid of debugging include at release.
-#include <QDebug>
+#include <QDebug> // TODO: Get rid of debugging include at release.
 
 Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
 {
     ui->setupUi(this);
     model m;
-    // open settings file
+    // TODO: Open settings file.
 }
 
-Angena::~Angena()
-{
-    delete ui;
-}
+Angena::~Angena() { delete ui; }
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -31,11 +27,18 @@ Angena::~Angena()
 void Angena::on_actionNew_triggered()
 {    
     qInfo() << "Creating new tree.";
+
     // If there is another tree open currently, prompt for save/close.
-        //Angena::on_actionSave_As_triggered();
+    if (m.isTreeOpen()) Angena::on_actionSave_As_triggered();
+
     // Show new family tree dialog.
+
     // Obtain new tree name and other settings.
+
     // Overwrite model with new open tree state.
+
+    // Clear graphic view.
+
 }
 
 /*
@@ -45,17 +48,25 @@ void Angena::on_actionNew_triggered()
 void Angena::on_actionOpen_triggered()
 {
     qInfo() << "Opening new tree.";
+
     // If there is another tree open currently, prompt for save/close.
-        //Angena::on_actionSave_As_triggered();
+    if (m.isTreeOpen()) Angena::on_actionSave_As_triggered();
+
     // Browse for tree file.
     QString filename = QFileDialog::getOpenFileName(this, "C://", "GEDCOM (*.txt)");
     qInfo() << filename;
-    // Extract tree state from file.
-    // Set family tree state to reflect the retrieved state.
+    if (filename != NULL) {
+        // Extract tree state from file.
+
+        // Set family tree state to reflect the retrieved state.
+
+        // Update graphic view
+
+    }
 }
 
 /*
- * Commits family tree state to a file.
+ * Commits family tree state to an existing/opened file.
  */
 void Angena::on_actionSave_triggered()
 {
@@ -67,7 +78,8 @@ void Angena::on_actionSave_triggered()
 }
 
 /*
- * Displays dialog to determine family tree name and save file path in GEDCOM format to disk.
+ * Saves family tree state to a new file.
+ * Displays dialog to determine save file path in GEDCOM format to disk.
  * Also called by other functions.
  */
 void Angena::on_actionSave_As_triggered()
@@ -78,7 +90,7 @@ void Angena::on_actionSave_As_triggered()
 }
 
 /*
- * Closes currently opened family tree
+ * Closes currently opened family tree.
  */
 void Angena::on_actionClose_triggered()
 {
@@ -215,4 +227,28 @@ void Angena::on_actionFan_triggered()
 {
     qInfo() << "Fan!";
     // Referencing model, implement fan logic here.
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Internal Actions
+//
+///////////////////////////////////////////////////////////////////////////////
+
+/*
+ * Redraws graphic view to reflect current tree state.
+ */
+void Angena::redraw_graphics_view()
+{
+    qInfo() << "Redraw!";
+    // Referencing model, pull data and draw each person.
+}
+
+/*
+ * Clears graphic view to reflect empty tree state.
+ */
+void Angena::clear_graphics_view()
+{
+    qInfo() << "Clear!";
+    // Clear graphics view.
 }

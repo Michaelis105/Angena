@@ -24,6 +24,9 @@ class Angena : public QMainWindow
         explicit Angena(QWidget *parent = 0);
         ~Angena();
 
+    private:
+        model m;
+
     private slots:
         void on_actionNew_triggered();
 
@@ -60,6 +63,10 @@ class Angena : public QMainWindow
         void on_actionHyperbolic_triggered();
 
         void on_actionFan_triggered();
+
+        void redraw_graphics_view();
+
+        void clear_graphics_view();
 
 private:
         Ui::Angena *ui;

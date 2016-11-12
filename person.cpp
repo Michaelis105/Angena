@@ -13,15 +13,3 @@ person::person() {
 person::updatePerson() {
 
 }
-
-
-
-/*
- * name
- * born date
- * gender
- * status: alive/deceased
- *
- * others:
- *
- */

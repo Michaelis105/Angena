@@ -7,7 +7,7 @@
 
 model::model() {
     person_node * curSelPerson = nullptr;
-    person_node * clipboard;
+    person_node * clipboard = nullptr;
     familytree curft;
     //std::deque<> history;
 }
@@ -68,7 +68,7 @@ bool model::disconnectPerson() {
  * Clears the stored tree state.
  */
 void model::clearTreeState() {
-
+    //curft = 0;
 }
 
 /*
@@ -83,6 +83,15 @@ void model::openTreeState() {
  */
 void model::saveTreeState() {
 
+}
+
+/*
+ * Checks if there is an existing tree state open or not.
+ * @return true is open, false if not open/null.
+ */
+bool model::isTreeOpen() {
+    return false;
+    //return (&curft == NULL) ? true : false;
 }
 
 
