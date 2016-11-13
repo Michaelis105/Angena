@@ -13,7 +13,10 @@ Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
     // TODO: Open settings file.
 }
 
-Angena::~Angena() { delete ui; }
+Angena::~Angena()
+{
+    delete ui;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -143,7 +146,7 @@ void Angena::on_actionExit_triggered()
  */
 void Angena::on_actionPreferences_triggered()
 {
-    // show the preferences dialog.
+    // Show the preferences dialog.
 }
 
 /*
@@ -184,6 +187,9 @@ void Angena::on_actionRedo_triggered()
 void Angena::on_actionAdd_Person_triggered()
 {
     qInfo() << "Add!";
+    // Add person dialog
+    // Retrieve all information
+    // Pass to model
 }
 
 /*

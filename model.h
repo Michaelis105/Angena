@@ -18,6 +18,7 @@ class model
         person_node * clipboard;
         familytree curft;
         //std::deque<> history;
+        file_io fio;
 
     public:
         model();
@@ -32,6 +33,13 @@ class model
         void openTreeState();
         void saveTreeState();
         bool isTreeOpen();
+
+        Name serializeName();
+        Addr serializeBirthAddr();
+        p_Date serializeBirthDate();
+        Addr serializeDeathAddr();
+        p_Date serializeDeathDate();
+
 };
 
 #endif // MODEL_H

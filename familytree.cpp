@@ -9,6 +9,52 @@
 familytree::familytree()
 {
     int numberPerson = 0;
-    person *curSelPerson = nullptr;
-    //person * persons[] = nullptr; // use malloc instead.
+    //person_node * persons[] = nullptr; // use malloc instead.
+}
+
+/*
+ * Adds a new person to the family tree.
+ */
+void familytree::addPerson(unsigned int newId, bool isDeceased) {
+    person_node * newP = new person_node(newId, isDeceased);
+    //if (newP == nullptr) return false;
+    numberPerson++;
+}
+
+/*
+ * Removes a specific person from the family tree.
+ * Disconnects the relationship between person and others
+ * as necessary.
+ * Input: person
+ */
+void familytree::delPerson() {
+    // get id or person?
+    numberPerson--;
+}
+
+/*
+ * Changes the information pertaining to a specific person..
+ * Input: person -
+ *        field  -
+ *        data   -
+ */
+void familytree::editPerson() {
+    // get id or person?
+}
+
+/*
+ * Connects a relationship between two persons.
+ * Input: person1, person2
+ */
+void familytree::connectPerson() {
+    // get id or person?
+    // If there is already a relationship between two persons, do nothing or throw error?
+}
+
+/*
+ * Disconnects the relationship between two persons.
+ * Input: person1, person2
+ */
+void familytree::disconnectPerson() {
+    // get id or person?
 }

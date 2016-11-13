@@ -10,7 +10,17 @@ model::model() {
     person_node * clipboard = nullptr;
     familytree curft;
     //std::deque<> history;
+    file_io fio;
 }
+
+/*
+ * !!! Ensure data is saved to disk before destroying model!
+ */
+/*
+ * model::~model() {
+    // Do we need a destructor for model?
+}
+*/
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -93,6 +103,7 @@ bool model::isTreeOpen() {
     return false;
     //return (&curft == NULL) ? true : false;
 }
+
 
 
 ///////////////////////////////////////////////////////////////////////////////

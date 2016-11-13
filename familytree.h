@@ -15,11 +15,11 @@ class familytree
         person_node * persons[];
     public:
         familytree();
-        bool addPerson();
-        bool delPerson();
-        bool editPerson();
-        bool connectPerson();
-        bool disconnectPerson();
+        void addPerson(unsigned int newId, bool isDeceased);
+        void delPerson();
+        void editPerson();
+        void connectPerson();
+        void disconnectPerson();
 };
 
 #endif // FAMILYTREE_H
