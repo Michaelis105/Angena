@@ -9,14 +9,23 @@ file_io::file_io() {
     //file object
 }
 
+/*
+ * Opens file.
+ */
 void file_io::open_file(char * file_path) {
     //file ob.open(
 }
 
+/*
+ * Closes file.
+ */
 void file_io::close_file() {
     //file ob.close();
 }
 
+/*
+ * Commits changes to file.
+ */
 void file_io::save_file() {
     //clear file (what if something happens midway???)
     //write many times to it

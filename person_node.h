@@ -18,13 +18,13 @@ class person_node
         p_vec par_vec;
     public:
         person_node(unsigned int newId, bool isDeceased);
-        void updateName(Name* newName);
-        void updateBirthAddr(Addr* newBAddr);
-        void updateDeathAddr(Addr* newDAddr);
-        void updateBirthDate(p_Date* newBDate);
-        void updateDeathDate(p_Date* newDDate);
-        void updateAliveStatus(bool state);
-        void updateNotes(char * newNote);
+        void setName(Name* newName);
+        void setBirthAddr(Addr* newBAddr);
+        void setDeathAddr(Addr* newDAddr);
+        void setBirthDate(p_Date* newBDate);
+        void setDeathDate(p_Date* newDDate);
+        void setAliveStatus(bool state);
+        void setNotes(char * newNote);
 };
 
 #endif // PERSON_NODE_H

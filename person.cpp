@@ -42,7 +42,10 @@ person::person(bool isDeceased) {
     }
 }
 
-void person::updateName(Name* newName) {
+/*
+ * Sets person's name.
+ */
+void person::setName(Name* newName) {
     if ((newName != nullptr) && (name != nullptr)) {
         name->first_name = newName->first_name;
         name->middle_name = newName->middle_name;
@@ -50,28 +53,46 @@ void person::updateName(Name* newName) {
     }
 }
 
-void person::updateBirthAddr(Addr* newBAddr) {
+/*
+ * Sets birth address.
+ */
+void person::setBirthAddr(Addr* newBAddr) {
 
 }
 
-void person::updateDeathAddr(Addr* newDAddr) {
+/*
+ * Sets death address.
+ */
+void person::setDeathAddr(Addr* newDAddr) {
 
 }
 
-void person::updateBirthDate(p_Date* newBDate) {
+/*
+ * Sets birth date.
+ */
+void person::setBirthDate(p_Date* newBDate) {
 
 }
 
-void person::updateDeathDate(p_Date* newDDate) {
+/*
+ * Sets death date.
+ */
+void person::setDeathDate(p_Date* newDDate) {
 
 }
 
-void person::updateAliveStatus(bool state) {
+/*
+ * Sets living status.
+ */
+void person::setAliveStatus(bool state) {
     isAlive = state;
     // Destroy deceased information.
 }
 
-void person::updateNotes(char * newNote) {
+/*
+ * Sets notes.
+ */
+void person::setNotes(char * newNote) {
     //notes = newNote;
 }
 

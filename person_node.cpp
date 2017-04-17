@@ -14,37 +14,58 @@ person_node::person_node(unsigned int newId, bool isDeceased)
     //par_vec;
 }
 
-void person_node::updateName(Name* newName)
+/*
+ * Sets person's name.
+ */
+void person_node::setName(Name* newName)
 {
     p->updateName(newName);
 }
 
-void person_node::updateBirthAddr(Addr* newBAddr)
+/*
+ * Sets birth address.
+ */
+void person_node::setBirthAddr(Addr* newBAddr)
 {
     p->updateBirthAddr(newBAddr);
 }
 
-void person_node::updateDeathAddr(Addr* newDAddr)
+/*
+ * Sets death address.
+ */
+void person_node::setDeathAddr(Addr* newDAddr)
 {
     p->updateDeathAddr(newDAddr);
 }
 
-void person_node::updateBirthDate(p_Date* newBDate)
+/*
+ * Sets birth date.
+ */
+void person_node::setBirthDate(p_Date* newBDate)
 {
     p->updateBirthDate(newBDate);
 }
 
-void person_node::updateDeathDate(p_Date* newDDate)
+/*
+ * Sets death date.
+ */
+void person_node::setDeathDate(p_Date* newDDate)
 {
     p->updateDeathDate(newDDate);
 }
 
-void person_node::updateAliveStatus(bool state)
+/*
+ * Sets living status.
+ */
+void person_node::setAliveStatus(bool state)
 {
     p->updateAliveStatus(state);
 }
 
-void person_node::updateNotes(char * newNote)
+/*
+ * Sets notes.
+ */
+void person_node::setNotes(char * newNote)
 {
     p->updateNotes(newNote);
 }

@@ -1,7 +1,12 @@
 # Angena
-A Qt Genealogy Program
+A Genealogy Program
 
-I am working on installation documentation, licensing, and other details pertaining to this project.
-#Qt
-#LGPL licensing
-#In progress
+Angena is a free, open-source genealogy program that displays genealogical data using a variety of graphical charts and text reports. It utilizes Qt to provide straight-forward data entry forms and interactive family entry elements.
+
+## 
+
+##
+
+### License
+
+Angena is [MIT licensed] for now.

@@ -61,13 +61,13 @@ class person
 
     public:
         person(bool isDeceased);
-        void updateName(Name* newName);
-        void updateBirthAddr(Addr* newBAddr);
-        void updateDeathAddr(Addr* newDAddr);
-        void updateBirthDate(p_Date* newBDate);
-        void updateDeathDate(p_Date* newDDate);
-        void updateAliveStatus(bool state);
-        void updateNotes(char * newNote);
+        void setName(Name* newName);
+        void setBirthAddr(Addr* newBAddr);
+        void setDeathAddr(Addr* newDAddr);
+        void setBirthDate(p_Date* newBDate);
+        void setDeathDate(p_Date* newDDate);
+        void setAliveStatus(bool state);
+        void setNotes(char * newNote);
         ~person();
 };
 
