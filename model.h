@@ -39,7 +39,6 @@ class model
         p_Date serializeBirthDate();
         Addr serializeDeathAddr();
         p_Date serializeDeathDate();
-
 };
 
 #endif // MODEL_H

@@ -36,8 +36,6 @@ void aboutDialog::on_pushButton_clicked()
     close();
 }
 
-
-
 // Create new family tree Dialog
 // TODO: How to retrieve data from dialog input.
 newfamilytree::newfamilytree(QWidget *parent) :
