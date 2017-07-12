@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-10-15T18:40:21
+# Project created by QtCreator 2017-07-09T19:43:52
 #
 #-------------------------------------------------
 
@@ -11,25 +11,55 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Angena
 TEMPLATE = app
 
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which as been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
 
-SOURCES += main.cpp\
-        angena.cpp \
-    model.cpp \
-    familytree.cpp \
-    person.cpp \
-    dialog.cpp \
-    person_node.cpp \
-    file_io.cpp
+# You can also make your code fail to compile if you use deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS  += angena.h \
-    model.h \
-    familytree.h \
-    person.h \
-    dialog.h \
-    person_node.h \
-    file_io.h
 
-FORMS    += angena.ui \
-    aboutdialog.ui \
-    dialog.ui \
-    newfamilytree.ui
+SOURCES += \
+    src/dialogs/dialog.cpp \
+    src/dialogs/dialogabout.cpp \
+    src/dialogs/dialognewfamily.cpp \
+    src/dialogs/dialognewperson.cpp \
+    src/dialogs/dialogsaveconfirmation.cpp \
+    src/model/familytree.cpp \
+    src/model/fileio.cpp \
+    src/model/model.cpp \
+    src/model/person.cpp \
+    src/model/personnode.cpp \
+    src/angena.cpp \
+    src/main.cpp
+
+HEADERS += \
+    src/dialogs/dialog.h \
+    src/dialogs/dialogabout.h \
+    src/dialogs/dialognewfamily.h \
+    src/dialogs/dialognewperson.h \
+    src/dialogs/dialogsaveconfirmation.h \
+    src/model/familytree.h \
+    src/model/fileio.h \
+    src/model/model.h \
+    src/model/person.h \
+    src/model/personnode.h \
+    src/angena.h
+
+FORMS += \
+    src/dialogs/dialogabout.ui \
+    src/dialogs/dialognewfamily.ui \
+    src/dialogs/dialognewperson.ui \
+    src/dialogs/dialogsaveconfirmation.ui \
+    src/angena.ui
+
+SUBDIRS += \
+    Angena.pro
+
+DISTFILES += \
+    LICENSE.md \
+    README.md
