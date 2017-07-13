@@ -35,7 +35,10 @@ SOURCES += \
     src/model/person.cpp \
     src/model/personnode.cpp \
     src/angena.cpp \
-    src/main.cpp
+    src/main.cpp \
+    src/model/personname.cpp \
+    src/model/personaddress.cpp \
+    src/model/date.cpp
 
 HEADERS += \
     src/dialogs/dialog.h \
@@ -48,7 +51,10 @@ HEADERS += \
     src/model/model.h \
     src/model/person.h \
     src/model/personnode.h \
-    src/angena.h
+    src/angena.h \
+    src/model/personname.h \
+    src/model/personaddress.h \
+    src/model/date.h
 
 FORMS += \
     src/dialogs/dialogabout.ui \

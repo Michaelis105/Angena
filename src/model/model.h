@@ -32,12 +32,13 @@ class Model
         void openTreeState();
         void saveTreeState();
         bool isTreeOpen();
-
+        /*
         Name serializeName();
         Addr serializeBirthAddr();
         PDate serializeBirthDate();
         Addr serializeDeathAddr();
         PDate serializeDeathDate();
+        */
 };
 
 #endif // MODEL_H

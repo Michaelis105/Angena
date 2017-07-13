@@ -14,6 +14,10 @@ PersonNode::PersonNode(unsigned int newId)
     //par_vec;
 }
 
+PersonNode::~PersonNode() {
+    delete p;
+}
+
 /*
  * Sets person's name.
  */
@@ -75,8 +79,4 @@ template <class noteType>
 void PersonNode::setNotes(noteType * newNote)
 {
     p->setNotes(newNote);
-}
-
-PersonNode::~PersonNode() {
-
 }

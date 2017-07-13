@@ -8,75 +8,53 @@ using namespace std;
 
 /*
  * Creates new person with no information.
- * Possibly an unknown person that is part of a family tree.
- * TODO: Check correct allocations.
  */
 Person::Person() {
-    name = new Name;
+    name = new PersonName();
     gender = G_UNKNOWN;
-    birth_addr = new Addr;
-    birth_addr->state_prov = new char[2];
-    birth_addr->country = new char[2];
-
-    birth_date = new PDate;
-    birth_date->month = new n0255;
-    birth_date->day = new n0255;
-    birth_date->year = new n0255;
-
-    // Allocate death information if actually deceased.
-    death_addr = new Addr;
-    death_addr->state_prov = new char[2];
-    death_addr->country = new char[2];
-    death_date = new PDate;
-    death_date->month = new n0255;
-    death_date->day = new n0255;
-    death_date->year = new n0255;
+    birth_addr = new PersonAddress();
+    birth_date = new Date();
+    death_addr = new PersonAddress();
+    death_date = new Date();
     livingState = LS_UNKNOWN;
-
-    // Memory allocation check.
+    notes = new string();
 }
+
+// TODO: Add another constructor for all details.
+// TODO: Fix setters and getters.
 
 /*
  * Sets person's name.
  */
-void Person::setName(Name* newName) {
-    if (newName != nullptr) {
-        name->first_name = newName->first_name;
-        name->middle_name = newName->middle_name;
-        name->last_name = newName->last_name;
-    }
+void Person::setName(string names) {
+    // call each setter
 }
 
 /*
  * Sets birth address.
  */
-void Person::setBirthAddr(Addr* newBAddr) {
-    if (newBAddr != nullptr) {
-        birth_addr->home_addr = newBAddr->home_addr;
-        birth_addr->state_prov = newBAddr->state_prov;
-        birth_addr->city = newBAddr->city;
-        birth_addr->country = newBAddr->country;
-    }
+void Person::setBirthAddr(string addrs) {
+    // call each setter
 }
 
 /*
  * Sets death address.
  */
-void Person::setDeathAddr(Addr* newDAddr) {
+void Person::setDeathAddr(string addrs) {
 
 }
 
 /*
  * Sets birth date.
  */
-void Person::setBirthDate(PDate* newBDate) {
+void Person::setBirthDate() {
 
 }
 
 /*
  * Sets death date.
  */
-void Person::setDeathDate(PDate* newDDate) {
+void Person::setDeathDate() {
 
 }
 
@@ -91,33 +69,14 @@ void Person::setAliveStatus(LivingState state) {
 /*
  * Sets notes.
  */
-void Person::setNotes(char * newNote) {
+void Person::setNotes(string newNote) {
     //notes = newNote;
 }
 
-// TODO: Check coorect deallocations.
 Person::~Person() {
-    // How to deallocate vectors? Is it automatic?
     delete name;
-
-    delete birth_addr->state_prov;
-    delete birth_addr->country;
     delete birth_addr;
-
-    delete birth_date->month;
-    delete birth_date->day;
-    delete birth_date->year;
     delete birth_date;
-
-    // Prevents deallocation of non-allocated data for deceased.
-    if (livingState == DECEASED) {
-        delete death_addr->state_prov;
-        delete death_addr->country;
-        delete death_addr;
-
-        delete death_date->month;
-        delete death_date->day;
-        delete death_date->year;
-        delete death_date;
-    }
+    delete death_addr;
+    delete death_date;
 }
