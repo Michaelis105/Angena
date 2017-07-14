@@ -1,11 +1,12 @@
-//=======================================================
+//===================================================
 // Name        : personname.h
 // Author      : Michael Louie
-// Description : Header for the person name data unit.
-//=======================================================
+// Description : Header for the person name data unit
+//===================================================
 #ifndef PERSONNAME_H
 #define PERSONNAME_H
 
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -21,6 +22,7 @@ class PersonName
         string * suffix;
     public:
         PersonName();
+        PersonName(string t, string fn, string mn, string ln, string nn, string s);
         ~PersonName();
         void setTitle(string newTitle);
         void setFirstName(string newfirstName);

@@ -1,7 +1,7 @@
 //===============================
 // Name        : person.cpp
 // Author      : Michael Louie
-// Description : Holds date info.
+// Description : Holds date info
 //===============================
 #ifndef DATE_H
 #define DATE_H
@@ -16,6 +16,7 @@ class Date
         short * year;
     public:
         Date();
+        Date(unsigned char m, unsigned char d, short y);
         ~Date();
         void setMonth(unsigned char newMonth);
         void setDay(unsigned char newDay);

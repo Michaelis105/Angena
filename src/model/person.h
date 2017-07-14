@@ -7,41 +7,44 @@
 #define PERSON_H
 #include <vector>
 #include <string>
+#include <stdexcept>
 #include "personname.h"
 #include "personaddress.h"
 #include "date.h"
 
-enum Gender { MALE, FEMALE, OTHER, G_UNKNOWN };
-enum LivingState { ALIVE, DECEASED, LS_UNKNOWN };
+using namespace std;
+
+//enum Gender { MALE, FEMALE, OTHER, G_UNKNOWN };
+//enum LivingState { ALIVE, DECEASED, LS_UNKNOWN };
 
 class Person
 {
     private:
         PersonName * name;
-        Gender gender;
-        PersonAddress * birth_addr;
-        PersonAddress * death_addr;
-        Date * birth_date;
-        Date * death_date;
-        LivingState livingState;
+        string * gender;
+        PersonAddress * birthAddr;
+        PersonAddress * deathAddr;
+        Date * birthDate;
+        Date * deathDate;
+        string * livingState;
         string * notes;
 
     public:
         Person();
         ~Person();
-        void setName(string names);
-        void setBirthAddr(string addrs);
-        void setDeathAddr(string addrs);
-        void setBirthDate();
-        void setDeathDate();
-        void setAliveStatus(LivingState state);
+        void setNames(vector<string> names);
+        void setBirthAddr(vector<string> addrs);
+        void setDeathAddr(vector<string> addrs);
+        void setBirthDate(vector<string> dates);
+        void setDeathDate(vector<string> dates);
+        void setLivingStatus(string state);
         void setNotes(string newNote);
         PersonName* getName();
         PersonAddress* getBirthAddr();
         PersonAddress* getDeathAddr();
         Date* getBirthDate();
         Date* getDeathDate();
-        LivingState getAliveStatus();
+        string getLivingStatus();
         string getNotes();
 };
 

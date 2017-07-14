@@ -1,5 +1,5 @@
 //====================================
-// Name        : personaddress.cpp
+// Name        : personname.cpp
 // Author      : Michael Louie
 // Description : Holds person name data
 //=====================================
@@ -12,6 +12,17 @@ PersonName::PersonName()
     middleName = new string();
     lastName = new string();
     nickName = new string();
+    suffix = new string();
+}
+
+PersonName::PersonName(string t, string fn, string mn, string ln, string nn, string s)
+{
+    title = new string(t);
+    firstName = new string(fn);
+    middleName = new string(mn);
+    lastName = new string(ln);
+    nickName = new string(nn);
+    suffix = new string(s);
 }
 
 PersonName::~PersonName() {
@@ -20,6 +31,7 @@ PersonName::~PersonName() {
     delete middleName;
     delete lastName;
     delete nickName;
+    delete suffix;
 }
 
 /**

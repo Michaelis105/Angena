@@ -14,6 +14,15 @@ PersonAddress::PersonAddress()
     zipCode = new string();
 }
 
+PersonAddress::PersonAddress(string ha, string sp, string ciy, string coy, string zc)
+{
+    homeAddr = new string(ha);
+    stateProv = new string(sp);
+    city = new string(ciy);
+    country = new string(coy);
+    zipCode = new string(zc);
+}
+
 PersonAddress::~PersonAddress() {
     delete homeAddr;
     delete stateProv;

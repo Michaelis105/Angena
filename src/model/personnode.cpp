@@ -1,7 +1,7 @@
 //========================================================================
 // Name        : personNode.cpp
 // Author      : Michael Louie
-// Description : Node containing a person and the relationships with other
+// Description : Node containing a person and relationships with other
 //               people.
 //========================================================================
 #include "personNode.h"
@@ -10,21 +10,32 @@ PersonNode::PersonNode(unsigned int newId)
 {
     id = newId;
     p = new Person();
-    //off_spr_vec;
-    //par_vec;
+    father = nullptr;
+    mother = nullptr;
+}
+
+// TODO: Handle what to do with other people attributes.
+PersonNode::PersonNode(unsigned int newId, Person * f, Person * m)
+{
+    id = newId;
+    p = new Person();
+    *father = f;
+    *mother = m;
 }
 
 PersonNode::~PersonNode() {
     delete p;
+    delete father;
+    delete mother;
 }
 
 /*
  * Sets person's name.
  */
 template <class nameType>
-void PersonNode::setName(nameType* newName)
+void PersonNode::setNames(nameType* newName)
 {
-    p->setName(newName);
+    p->setNames(newName);
 }
 
 /*
@@ -67,9 +78,9 @@ void PersonNode::setDeathDate(dateType* newDDate)
  * Sets living status.
  */
 template <class livingStateType>
-void PersonNode::setAliveStatus(livingStateType* state)
+void PersonNode::setLivingStatus(livingStateType* state)
 {
-    p->setAliveStatus(state);
+    p->setLivingStatus(state);
 }
 
 /*
@@ -79,4 +90,39 @@ template <class noteType>
 void PersonNode::setNotes(noteType * newNote)
 {
     p->setNotes(newNote);
+}
+
+template <class nameType>
+nameType PersonNode::getNames() {
+
+}
+
+template <class addrType>
+addrType PersonNode::getBirthAddr() {
+
+}
+
+template <class addrType>
+addrType PersonNode::getDeathAddr() {
+
+}
+
+template <class dateType>
+dateType PersonNode::getBirthDate() {
+
+}
+
+template <class dateType>
+dateType PersonNode::getDeathDate() {
+
+}
+
+template <class livingStateType>
+livingStateType PersonNode::getLivingStatus() {
+
+}
+
+template <class noteType>
+noteType PersonNode::getNotes() {
+
 }

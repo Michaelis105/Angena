@@ -1,8 +1,8 @@
-//=======================================================
+//======================================================
 // Name        : personaddress.h
 // Author      : Michael Louie
-// Description : Header for the person address data unit.
-//=======================================================
+// Description : Header for the person address data unit
+//======================================================
 #ifndef PERSONADDRESS_H
 #define PERSONADDRESS_H
 #include <string>
@@ -19,6 +19,7 @@ class PersonAddress
         string * zipCode;
     public:
         PersonAddress();
+        PersonAddress(string ha, string sp, string ciy, string coy, string zc);
         ~PersonAddress();
         void setHomeAddr(string newHomeAddr);
         void setStateProv(string newStateProv);

@@ -1,8 +1,8 @@
-//========================================
+//================================
 // Name        : date.cpp
 // Author      : Michael Louie
 // Description : Date (MM/DD/YYYY)
-//========================================
+//================================
 #include "date.h"
 
 Date::Date()
@@ -10,6 +10,13 @@ Date::Date()
     month = new unsigned char;
     day = new unsigned char;
     year = new short;
+}
+
+Date::Date(unsigned char m, unsigned char d, short y)
+{
+    month = new unsigned char(m);
+    day = new unsigned char(d);
+    year = new short(y);
 }
 
 Date::~Date() {
