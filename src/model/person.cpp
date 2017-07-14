@@ -10,7 +10,7 @@
  */
 Person::Person() {
     name = new PersonName();
-    gender = new string();
+    sex = new string();
     birthAddr = new PersonAddress();
     birthDate = new Date();
     deathAddr = new PersonAddress();

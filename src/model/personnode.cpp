@@ -19,8 +19,8 @@ PersonNode::PersonNode(unsigned int newId, Person * f, Person * m)
 {
     id = newId;
     p = new Person();
-    *father = f;
-    *mother = m;
+    father = f;
+    mother = m;
 }
 
 PersonNode::~PersonNode() {
@@ -29,7 +29,7 @@ PersonNode::~PersonNode() {
     delete mother;
 }
 
-/*
+/**
  * Sets person's name.
  */
 template <class nameType>
@@ -38,8 +38,8 @@ void PersonNode::setNames(nameType* newName)
     p->setNames(newName);
 }
 
-/*
- * Sets birth address.
+/**
+ * Sets person's birth address.
  */
 template <class addrType>
 void PersonNode::setBirthAddr(addrType* newBAddr)
@@ -47,8 +47,8 @@ void PersonNode::setBirthAddr(addrType* newBAddr)
     p->setBirthAddr(newBAddr);
 }
 
-/*
- * Sets death address.
+/**
+ * Sets person's death address.
  */
 template <class addrType>
 void PersonNode::setDeathAddr(addrType* newDAddr)
@@ -56,8 +56,8 @@ void PersonNode::setDeathAddr(addrType* newDAddr)
     p->setDeathAddr(newDAddr);
 }
 
-/*
- * Sets birth date.
+/**
+ * Sets person's birth date.
  */
 template <class dateType>
 void PersonNode::setBirthDate(dateType* newBDate)
@@ -65,8 +65,8 @@ void PersonNode::setBirthDate(dateType* newBDate)
     p->setBirthDate(newBDate);
 }
 
-/*
- * Sets death date.
+/**
+ * Sets person's death date.
  */
 template <class dateType>
 void PersonNode::setDeathDate(dateType* newDDate)
@@ -74,8 +74,8 @@ void PersonNode::setDeathDate(dateType* newDDate)
     p->setDeathDate(newDDate);
 }
 
-/*
- * Sets living status.
+/**
+ * Sets person's living status.
  */
 template <class livingStateType>
 void PersonNode::setLivingStatus(livingStateType* state)
@@ -83,8 +83,8 @@ void PersonNode::setLivingStatus(livingStateType* state)
     p->setLivingStatus(state);
 }
 
-/*
- * Sets notes.
+/**
+ * Sets person's notes.
  */
 template <class noteType>
 void PersonNode::setNotes(noteType * newNote)
@@ -92,37 +92,58 @@ void PersonNode::setNotes(noteType * newNote)
     p->setNotes(newNote);
 }
 
+/**
+ * Gets person's name.
+ */
 template <class nameType>
 nameType PersonNode::getNames() {
-
+    return p->getName();
 }
 
+/**
+ * Gets person's birth address.
+ */
 template <class addrType>
 addrType PersonNode::getBirthAddr() {
-
+    return p->getBirthAddr();
 }
 
+/**
+ * Gets person's death address.
+ */
 template <class addrType>
 addrType PersonNode::getDeathAddr() {
-
+    return p->getDeathAddr();
 }
 
+/**
+ * Gets person's birth date.
+ */
 template <class dateType>
 dateType PersonNode::getBirthDate() {
-
+    return p->getBirthDate();
 }
 
+/**
+ * Gets person's death date.
+ */
 template <class dateType>
 dateType PersonNode::getDeathDate() {
-
+    return p->getDeathDate();
 }
 
+/**
+ * Gets person's living status.
+ */
 template <class livingStateType>
 livingStateType PersonNode::getLivingStatus() {
-
+    return p->getLivingStatus();
 }
 
+/**
+ * Gets person's notes.
+ */
 template <class noteType>
 noteType PersonNode::getNotes() {
-
+    return p->getNotes();
 }

@@ -14,14 +14,14 @@
 
 using namespace std;
 
-//enum Gender { MALE, FEMALE, OTHER, G_UNKNOWN };
+//enum Sex { MALE, FEMALE, OTHER, G_UNKNOWN };
 //enum LivingState { ALIVE, DECEASED, LS_UNKNOWN };
 
 class Person
 {
     private:
         PersonName * name;
-        string * gender;
+        string * sex;
         PersonAddress * birthAddr;
         PersonAddress * deathAddr;
         Date * birthDate;

@@ -11,11 +11,14 @@
 class PersonNode
 {
     private:
+
+        /* Uniquely identify up to 65534 individuals covering
+         * enough generations dating back to the 1500s. */
         unsigned int id;
         Person * p;
-        Person ** mother;
-        Person ** father;
-        Person ** partner;
+        Person * mother;
+        Person * father;
+        Person * partner;
     public:
         PersonNode(unsigned int newId);
         PersonNode(unsigned int newId, Person * f, Person * m);

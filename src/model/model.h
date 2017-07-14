@@ -1,8 +1,8 @@
-//===========================================
+//==========================================
 // Name        : model.h
 // Author      : Michael Louie
-// Description : Header for the Angena model.
-//===========================================
+// Description : Header for the Angena model
+//==========================================
 #ifndef MODEL_H
 #define MODEL_H
 
@@ -21,11 +21,11 @@ class Model
     public:
         Model();
         ~Model();
-        bool addPerson();
-        bool delPerson();
-        bool editPerson();
-        bool connectPerson();
-        bool disconnectPerson();
+        void addPerson();
+        void delPerson();
+        void editPerson();
+        void connectPerson();
+        void disconnectPerson();
         void undo();
         void redo();
         void clearTreeState();

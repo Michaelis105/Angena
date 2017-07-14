@@ -26,10 +26,9 @@ Model::~Model() {
 /*
  * Adds a new person to the family tree.
  */
-bool Model::addPerson() {
+void Model::addPerson() {
     // Create new person object.
     // ...
-    return false;
 }
 
 /*
@@ -38,8 +37,7 @@ bool Model::addPerson() {
  * as necessary.
  * Input: person
  */
-bool Model::delPerson() {
-    return false;
+void Model::delPerson() {
 }
 
 /*
@@ -48,25 +46,22 @@ bool Model::delPerson() {
  *        field  -
  *        data   -
  */
-bool Model::editPerson() {
-    return false;
+void Model::editPerson() {
 }
 
 /*
  * Connects a relationship between two persons.
  * Input: person1, person2
  */
-bool Model::connectPerson() {
+void Model::connectPerson() {
     // If there is already a relationship between two persons, do nothing or throw error?
-    return false;
 }
 
 /*
  * Disconnects the relationship between two persons.
  * Input: person1, person2
  */
-bool Model::disconnectPerson() {
-    return false;
+void Model::disconnectPerson() {
 }
 
 /*
