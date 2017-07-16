@@ -1,24 +1,29 @@
 //==========================================
 // Name        : familytree.h
 // Author      : Michael Louie
-// Description : Header for the family tree.
+// Description : Header for the family tree
 //==========================================
 #ifndef FAMILYTREE_H
 #define FAMILYTREE_H
-#include "personNode.h"
+#include <stdexcept>
+#include <vector>
+
+#include "personnode.h"
 
 class FamilyTree
 {
     private:
-        int numberPerson;
-        PersonNode * persons[];
+        //PersonNode * persons[];
+    protected:
+        unsigned int totalPersonNodes;
     public:
         FamilyTree();
-        void addPerson(unsigned int newId, bool isDeceased);
-        void delPerson();
-        void editPerson();
-        void connectPerson();
-        void disconnectPerson();
+        unsigned int getTotalPersonNodes();
+        void addPerson(unsigned int newId);
+        void delPerson(PersonNode * p);
+        void editPerson(PersonNode * p, vector<string> fieldValues);
+        void connectPersons(PersonNode * parent, PersonNode * child);
+        void disconnectPersons(PersonNode * parent, PersonNode * child);
 };
 
 #endif // FAMILYTREE_H

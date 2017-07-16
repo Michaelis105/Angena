@@ -5,7 +5,7 @@
 //===================================================
 #ifndef PERSONNAME_H
 #define PERSONNAME_H
-
+#include <stdexcept>
 #include <vector>
 #include <string>
 

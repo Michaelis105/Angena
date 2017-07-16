@@ -50,6 +50,14 @@ void Person::setNames(vector<string> names) {
 }
 
 /**
+ * @brief Sets sex
+ * @param s person's sex
+ */
+void Person::setSex(string s) {
+    *sex = s;
+}
+
+/**
  * @brief Sets birth address parts corresponding to addrs index.
  * @param addrs list of address parts, must be size 5
  *        [0] = home address, [1] = state/province, etc...
@@ -127,4 +135,68 @@ void Person::setLivingStatus(string state) {
  */
 void Person::setNotes(string newNote) {
     *notes = newNote;
+}
+
+/**
+ * @brief Gets person's name.
+ * @return name
+ */
+PersonName* Person::getName() {
+    return name;
+}
+
+/**
+ * @brief Gets person's sex.
+ * @return sex
+ */
+string* Person::getSex() {
+    return sex;
+}
+
+/**
+ * @brief Gets person's birth address.
+ * @return birth address
+ */
+PersonAddress* Person::getBirthAddr() {
+    return birthAddr;
+}
+
+/**
+ * @brief Gets person's death address.
+ * @return death address
+ */
+PersonAddress* Person::getDeathAddr() {
+    return deathAddr;
+}
+
+/**
+ * @brief Get person's birth date.
+ * @return birth date
+ */
+Date* Person::getBirthDate() {
+    return birthDate;
+}
+
+/**
+ * @brief Gets person's death date.
+ * @return death date
+ */
+Date* Person::getDeathDate() {
+    return deathDate;
+}
+
+/**
+ * @brief Gets person's living status.
+ * @return living status
+ */
+string* Person::getLivingStatus() {
+    return livingState;
+}
+
+/**
+ * @brief Gets person's notes.
+ * @return notes
+ */
+string* Person::getNotes() {
+    return notes;
 }

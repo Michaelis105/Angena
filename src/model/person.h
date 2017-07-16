@@ -28,11 +28,13 @@ class Person
         Date * deathDate;
         string * livingState;
         string * notes;
+        // picture?
 
     public:
         Person();
         ~Person();
         void setNames(vector<string> names);
+        void setSex(string s);
         void setBirthAddr(vector<string> addrs);
         void setDeathAddr(vector<string> addrs);
         void setBirthDate(vector<string> dates);
@@ -40,12 +42,13 @@ class Person
         void setLivingStatus(string state);
         void setNotes(string newNote);
         PersonName* getName();
+        string* getSex();
         PersonAddress* getBirthAddr();
         PersonAddress* getDeathAddr();
         Date* getBirthDate();
         Date* getDeathDate();
-        string getLivingStatus();
-        string getNotes();
+        string* getLivingStatus();
+        string* getNotes();
 };
 
 #endif // PERSON_H

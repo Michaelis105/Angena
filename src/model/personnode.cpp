@@ -4,7 +4,7 @@
 // Description : Node containing a person and relationships with other
 //               people.
 //========================================================================
-#include "personNode.h"
+#include "personnode.h"
 
 PersonNode::PersonNode(unsigned int newId)
 {
@@ -15,7 +15,7 @@ PersonNode::PersonNode(unsigned int newId)
 }
 
 // TODO: Handle what to do with other people attributes.
-PersonNode::PersonNode(unsigned int newId, Person * f, Person * m)
+PersonNode::PersonNode(unsigned int newId, PersonNode * f, PersonNode * m)
 {
     id = newId;
     p = new Person();
@@ -29,121 +29,70 @@ PersonNode::~PersonNode() {
     delete mother;
 }
 
+// NOTE: See personnode.h for template method declarations and body.
+
 /**
- * Sets person's name.
+ * @brief Set person node's father.
+ * @param f father node.
  */
-template <class nameType>
-void PersonNode::setNames(nameType* newName)
-{
-    p->setNames(newName);
+void PersonNode::setFather(PersonNode * f) {
+    father = f;
 }
 
 /**
- * Sets person's birth address.
+ * @brief Set person node's mother.
+ * @param m mother node
  */
-template <class addrType>
-void PersonNode::setBirthAddr(addrType* newBAddr)
-{
-    p->setBirthAddr(newBAddr);
+void PersonNode::setMother(PersonNode * m) {
+    mother = m;
 }
 
 /**
- * Sets person's death address.
+ * @brief Gets person node's father.
+ * @return PersonNode if set, null if no known father
  */
-template <class addrType>
-void PersonNode::setDeathAddr(addrType* newDAddr)
-{
-    p->setDeathAddr(newDAddr);
+PersonNode* PersonNode::getFather() {
+    return father;
 }
 
 /**
- * Sets person's birth date.
+ * @brief Gets person node's mother.
+ * @return PersonNode if set, null if no known father
  */
-template <class dateType>
-void PersonNode::setBirthDate(dateType* newBDate)
-{
-    p->setBirthDate(newBDate);
+PersonNode* PersonNode::getMother() {
+    return mother;
 }
 
 /**
- * Sets person's death date.
+ * @brief Connects person (parent) and offspring.
+ * @param os offspring to connect
  */
-template <class dateType>
-void PersonNode::setDeathDate(dateType* newDDate)
-{
-    p->setDeathDate(newDDate);
+void PersonNode::addOffspring(PersonNode * os) {
+    if (os != nullptr) {
+        offspring.push_back(os);
+    } else {
+        throw invalid_argument( "PersonNode::addOffspring(): Offspring was null." );
+    }
 }
 
 /**
- * Sets person's living status.
+ * @brief Disconnects person and offspring.
+ * @param os offspring to disconnect
  */
-template <class livingStateType>
-void PersonNode::setLivingStatus(livingStateType* state)
-{
-    p->setLivingStatus(state);
-}
-
-/**
- * Sets person's notes.
- */
-template <class noteType>
-void PersonNode::setNotes(noteType * newNote)
-{
-    p->setNotes(newNote);
-}
-
-/**
- * Gets person's name.
- */
-template <class nameType>
-nameType PersonNode::getNames() {
-    return p->getName();
-}
-
-/**
- * Gets person's birth address.
- */
-template <class addrType>
-addrType PersonNode::getBirthAddr() {
-    return p->getBirthAddr();
-}
-
-/**
- * Gets person's death address.
- */
-template <class addrType>
-addrType PersonNode::getDeathAddr() {
-    return p->getDeathAddr();
-}
-
-/**
- * Gets person's birth date.
- */
-template <class dateType>
-dateType PersonNode::getBirthDate() {
-    return p->getBirthDate();
-}
-
-/**
- * Gets person's death date.
- */
-template <class dateType>
-dateType PersonNode::getDeathDate() {
-    return p->getDeathDate();
-}
-
-/**
- * Gets person's living status.
- */
-template <class livingStateType>
-livingStateType PersonNode::getLivingStatus() {
-    return p->getLivingStatus();
-}
-
-/**
- * Gets person's notes.
- */
-template <class noteType>
-noteType PersonNode::getNotes() {
-    return p->getNotes();
+void PersonNode::removeOffspring(PersonNode * os) {
+    if (os != nullptr) {
+        if (!offspring.empty()) {
+            for (int i = 0; i < offspring.size()-1; i++) {
+                if (os == (offspring.at(i))) {
+                    offspring.erase(offspring.begin()+i);
+                    return;
+                }
+            }
+            throw logic_error( "PersonNode::removeOffspring(): Failed to find offspring to remove." );
+        } else {
+            throw invalid_argument( "PersonNode::removeOffspring(): Attempt remove offspring when empty." );
+        }
+    } else {
+        throw invalid_argument( "PersonNode::removeOffspring(): Offspring was null." );
+    }
 }

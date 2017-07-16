@@ -1,24 +1,33 @@
 //=================================================
 // Name        : familyTree.cpp
 // Author      : Michael Louie
-// Description : Model for a family tree structure.
+// Description : Model for a family tree structure
 //=================================================
-#include "familyTree.h"
+#include "familytree.h"
 
-// there is a root person/couple of a family tree. Each person/pair can have any number of children.
 FamilyTree::FamilyTree()
 {
-    int numberPerson = 0;
-    //person_node * persons[] = nullptr; // use malloc instead.
+    /* Track maximum 65535 individuals covering enough generations
+     * dating back to around the 1600s. */
+    unsigned int totalPersonNodes = 0;
+    // Store all persons in some data structure, maybe hash table?
+}
+
+/**
+ * @brief Gets total number of person nodes counted in family tree
+ * @return 0-65535
+ */
+unsigned int FamilyTree::getTotalPersonNodes() {
+    return totalPersonNodes;
 }
 
 /*
  * Adds a new person to the family tree.
  */
-void FamilyTree::addPerson(unsigned int newId, bool isDeceased) {
+void FamilyTree::addPerson(unsigned int newId) {
     PersonNode * newP = new PersonNode(newId);
-    //if (newP == nullptr) return false;
-    numberPerson++;
+    // Record person.
+    totalPersonNodes++;
 }
 
 /*
@@ -27,9 +36,9 @@ void FamilyTree::addPerson(unsigned int newId, bool isDeceased) {
  * as necessary.
  * Input: person
  */
-void FamilyTree::delPerson() {
-    // get id or person?
-    numberPerson--;
+void FamilyTree::delPerson(PersonNode * p) {
+    // Delete person.
+    totalPersonNodes--;
 }
 
 /*
@@ -38,23 +47,46 @@ void FamilyTree::delPerson() {
  *        field  -
  *        data   -
  */
-void FamilyTree::editPerson() {
-    // get id or person?
+void editPerson(PersonNode * p, vector<string> fieldValues) {
+    // Process fieldValues? Or do it in model?
 }
 
-/*
- * Connects a relationship between two persons.
- * Input: person1, person2
+/**
+ * @brief Connects a parent and child node such that child is parent's offspring
+ *        and child's parent is parent.
+ * @param parent
+ * @param child
  */
-void FamilyTree::connectPerson() {
-    // get id or person?
-    // If there is already a relationship between two persons, do nothing or throw error?
+void FamilyTree::connectPersons(PersonNode * parent, PersonNode * child) {
+    if (parent != nullptr && child != nullptr) {
+        // TODO: Check for existing connection?
+        if (!parent->template getSex<string*>()->compare("MALE")) {
+            child->setFather(parent);
+        } else {
+            child->setMother(parent);
+        }
+        parent->addOffspring(child);
+    } else {
+        throw invalid_argument( "FamilyTree::connectPersons(): Either parent or child was null." );
+    }
 }
 
-/*
- * Disconnects the relationship between two persons.
- * Input: person1, person2
+/**
+ * @brief Disconnects a parent and child node such that child is no longer
+ *        parent's offspring and child's parent is not parent.
+ * @param parent
+ * @param child
  */
-void FamilyTree::disconnectPerson() {
-    // get id or person?
+void FamilyTree::disconnectPersons(PersonNode * parent, PersonNode * child) {
+    // TODO: Check if there is no connection?
+    if (parent != nullptr && child != nullptr) {
+        if (!parent->template getSex<string*>()->compare("MALE")) {
+            child->setFather(parent);
+        } else {
+            child->setMother(parent);
+        }
+        parent->removeOffspring(child);
+    } else {
+        throw invalid_argument( "FamilyTree::disconnectPersons(): Either parent or child was null." );
+    }
 }
