@@ -20,9 +20,9 @@ class DialogAbout : public QDialog
         ~DialogAbout();
 
     private slots:
-        void on_pushButton_clicked();
+        void on_close_button_clicked();
 
-    private:
+private:
         Ui::DialogAbout *ui;
 };
 

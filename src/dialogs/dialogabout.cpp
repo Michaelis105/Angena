@@ -16,7 +16,7 @@ DialogAbout::~DialogAbout()
     delete ui;
 }
 
-void DialogAbout::on_pushButton_clicked()
+void DialogAbout::on_close_button_clicked()
 {
     close();
 }

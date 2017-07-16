@@ -6,18 +6,40 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
-    <height>320</height>
+    <width>475</width>
+    <height>165</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Dialog</string>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <property name="minimumSize">
+   <size>
+    <width>475</width>
+    <height>165</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>475</width>
+    <height>165</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>About Angena</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../floweroflife.png</normaloff>../../floweroflife.png</iconset>
+  </property>
+  <widget class="QPushButton" name="close_button">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>250</y>
+     <x>380</x>
+     <y>130</y>
      <width>80</width>
      <height>21</height>
     </rect>
@@ -25,6 +47,75 @@
    <property name="text">
     <string>Close</string>
    </property>
+  </widget>
+  <widget class="QLabel" name="picture_label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>101</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../floweroflife.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>18</y>
+     <width>321</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <widget class="QLabel" name="progreanname_label">
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Angena 1.0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="website_label">
+    <property name="text">
+     <string>https://github.com/Michaelis105/Angena</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="legal_label">
+    <property name="text">
+     <string>The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
