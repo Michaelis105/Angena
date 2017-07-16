@@ -6,9 +6,9 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <QUuid>
 #include <vector>
 
-// The model contains a family tree to operate on when a UI event occurs.
 #include "familyTree.h"
 #include "fileIO.h"
 
@@ -16,9 +16,9 @@ class Model
 {
     private:
         PersonNode * curSelPerson;
-        //personNode * clipboard;
-        FamilyTree * curft;
+        FamilyTree curft;
         FileIO fio;
+        //personNode * clipboard;
 
     public:
         Model();

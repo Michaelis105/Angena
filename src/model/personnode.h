@@ -14,9 +14,13 @@ class PersonNode
 {
     private:
 
-        /* Uniquely identify up to 65535 individuals covering
-         * enough generations dating back to around the 1600s. */
-        unsigned int id;
+        /*
+         * Uniquely identify up to 65535 individuals covering
+         * enough generations dating back to around the 1600s.
+         * Strongly recommend using a random ID generator to
+         * guarantee unique IDs independent of person attributes.
+         */
+        string id;
         Person * p;
         PersonNode * mother;
         PersonNode * father;
@@ -24,8 +28,8 @@ class PersonNode
         vector<PersonNode *> offspring;
 
     public:
-        PersonNode(unsigned int newId);
-        PersonNode(unsigned int newId, PersonNode * f, PersonNode * m);
+        PersonNode(string newId);
+        PersonNode(string newId, PersonNode * f, PersonNode * m);
         ~PersonNode();
         template <class nameType>
         void setNames(nameType* newName);

@@ -3,7 +3,6 @@
 // Author      : Michael Louie
 // Description : Header for the file input/output.
 //================================================
-
 #ifndef FILEIO_H
 #define FILEIO_H
 #include <fstream>

@@ -6,15 +6,16 @@
 #include "model.h"
 
 Model::Model() {
-    PersonNode * curSelPerson = nullptr;
-    //personNode * clipboard = nullptr;
-    FamilyTree * curft;
+    FamilyTree curft;
     FileIO fio;
+    //PersonNode * curSelPerson = nullptr;
+    //personNode * clipboard = nullptr;
     //std::deque<> history;
 }
 
 Model::~Model() {
-    // Do we need a destructor for model?
+    // Delete all people, nodes, and data.
+    // Close all streams.
 }
 
 /////////////////////////
@@ -23,12 +24,12 @@ Model::~Model() {
 //
 /////////////////////////
 
-/*
- * Adds a new person to the family tree.
+/**
+ * @brief Adds a 'blank' person to family tree.
  */
 void Model::addPerson() {
-    // Create new person object.
-    // ...
+    QUuid newId = QUuid::createUuid();
+    curft.addPerson(newId.toString().toStdString());
 }
 
 /*
@@ -90,10 +91,9 @@ void Model::saveTreeState() {
  * @return true if open, false if not open/null.
  */
 bool Model::isTreeOpen() {
-    return (curft != NULL);
+    return false;
+    //return (curft != NULL);
 }
-
-
 
 ///////////////////////
 //
@@ -114,7 +114,3 @@ void Model::undo() {
 void Model::redo() {
     // NOTE: Method not implemented!
 }
-
-
-
-

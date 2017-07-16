@@ -6,7 +6,7 @@
 //========================================================================
 #include "personnode.h"
 
-PersonNode::PersonNode(unsigned int newId)
+PersonNode::PersonNode(string newId)
 {
     id = newId;
     p = new Person();
@@ -15,7 +15,7 @@ PersonNode::PersonNode(unsigned int newId)
 }
 
 // TODO: Handle what to do with other people attributes.
-PersonNode::PersonNode(unsigned int newId, PersonNode * f, PersonNode * m)
+PersonNode::PersonNode(string newId, PersonNode * f, PersonNode * m)
 {
     id = newId;
     p = new Person();

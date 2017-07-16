@@ -1,11 +1,12 @@
-//========================================================
+//================================================
 // Name        : angena.cpp
 // Author      : Michael Louie
-// Description : Primary controller for primary UI window.
-//========================================================
+// Description : Controller for primary UI window.
+//================================================
+#include <QDebug>
+
 #include "angena.h"
 #include "ui_angena.h"
-#include <QDebug> // TODO: Get rid of debugging include at release.
 
 Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
 {
@@ -27,7 +28,7 @@ Angena::~Angena() { delete ui; }
  */
 void Angena::on_actionNew_triggered()
 {
-    qInfo() << "Creating new tree.";
+    qDebug() << "Creating new tree.";
 
     // If there is another tree open currently, prompt for save/close.
     if (m.isTreeOpen()) {
@@ -47,7 +48,7 @@ void Angena::on_actionNew_triggered()
  */
 void Angena::on_actionOpen_triggered()
 {
-    qInfo() << "Opening new tree.";
+    qDebug() << "Opening new tree.";
 
     // If there is another tree open currently, prompt for save/close.
     if (m.isTreeOpen()) {
@@ -59,7 +60,7 @@ void Angena::on_actionOpen_triggered()
 
     // Browse for tree file.
     QString filename = QFileDialog::getOpenFileName(this, "C://", "GEDCOM (*.txt)");
-    qInfo() << filename;
+    qDebug() << filename;
     if (filename != NULL) {
         // Extract tree state from file.
 
@@ -75,10 +76,11 @@ void Angena::on_actionOpen_triggered()
  */
 void Angena::on_actionSave_triggered()
 {
-    qInfo() << "Saving new tree state.";
+    qDebug() << "Saving new tree state.";
     // Only enable if there is a change or undo resolved to original state
     // Does not apply for now...
-
+    QUuid newId = QUuid::createUuid();
+    qDebug() << newId;
 
     // If a file does not exist, call save_as() and retrieve a file name/path
     // Save tree state to file path.
@@ -92,7 +94,7 @@ void Angena::on_actionSave_triggered()
  */
 void Angena::on_actionSave_As_triggered()
 {
-    qInfo() << "Saving new tree state as...";
+    qDebug() << "Saving new tree state as...";
     // TODO: Dialog box.
     // TODO: Call the writer to generate GEDCOM based on family tree state.
 }
@@ -104,7 +106,7 @@ void Angena::on_actionClose_triggered()
 {
     // TODO: Prompt save if tree state has changed.
     // TODO: Or prompt save as if file never existed.
-    qInfo() << "Closing tree.";
+    qDebug() << "Closing tree.";
     // Nullify model tree state.
     // Free memory.
     // Update display.
@@ -120,7 +122,7 @@ void Angena::on_actionRecent_Files_triggered()
 {
     // If there were not any recently opened file, then throw an error (change return type?).
     // The menu link should not have been enabled in the first place.
-    qInfo() << "Opening recent file";
+    qDebug() << "Opening recent file";
     // Open the tree state, update model tree state.
     // Update display
     // NOTE: Method not implemented!
@@ -131,7 +133,7 @@ void Angena::on_actionRecent_Files_triggered()
  */
 void Angena::on_actionPrint_triggered()
 {
-    qInfo() << "Printing state of tree display.";
+    qDebug() << "Printing state of tree display.";
     // TODO: Implement printing functionality. Probably another dialog following
     // standard printing functionality such as choose printer, size, layout, etc...
 }
@@ -141,7 +143,7 @@ void Angena::on_actionPrint_triggered()
  */
 void Angena::on_actionExit_triggered()
 {
-    qInfo() << "Shutting application down.";
+    qDebug() << "Shutting application down.";
     // TODO: Prompt save if tree state has changed.
     close();
     // TODO: Destroy stuff as needed.
@@ -176,7 +178,7 @@ void Angena::on_actionAbout_triggered()
  */
 void Angena::on_actionUndo_triggered()
 {
-    qInfo() << "Undo!";
+    qDebug() << "Undo!";
     // NOTE: Method not implemented!
 }
 
@@ -185,7 +187,7 @@ void Angena::on_actionUndo_triggered()
  */
 void Angena::on_actionRedo_triggered()
 {
-    qInfo() << "Redo!";
+    qDebug() << "Redo!";
     // NOTE: Method not implemented!
 }
 
@@ -194,7 +196,7 @@ void Angena::on_actionRedo_triggered()
  */
 void Angena::on_actionAdd_Person_triggered()
 {
-    qInfo() << "Add!";
+    qDebug() << "Add!";
     // Add person dialog
     // Retrieve all information
     // Pass to model
@@ -205,7 +207,7 @@ void Angena::on_actionAdd_Person_triggered()
  */
 void Angena::on_actionRemove_Person_triggered()
 {
-    qInfo() << "Remove!";
+    qDebug() << "Remove!";
     // Get currently selected person.
     // If selected, continue, else throw exception (option should be disabled).
     // Open dialog
@@ -218,7 +220,7 @@ void Angena::on_actionRemove_Person_triggered()
  */
 void Angena::on_actionEdit_Person_triggered()
 {
-    qInfo() << "Edit!";
+    qDebug() << "Edit!";
     // Get currently selected person.
     // If selected, continue, else throw exception (option should be disabled).
     // Open dialog
@@ -237,7 +239,7 @@ void Angena::on_actionEdit_Person_triggered()
  */
 void Angena::redrawGraphicsView()
 {
-    qInfo() << "Redraw!";
+    qDebug() << "Redraw!";
     // Referencing model, pull data and draw each person.
 }
 
@@ -246,6 +248,6 @@ void Angena::redrawGraphicsView()
  */
 void Angena::clearGraphicsView()
 {
-    qInfo() << "Clear!";
+    qDebug() << "Clear!";
     // Clear graphics view.
 }

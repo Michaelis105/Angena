@@ -8,6 +8,7 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+
 #include "model/model.h"
 #include "dialogs/dialog.h"
 

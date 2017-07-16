@@ -14,15 +14,15 @@
 class FamilyTree
 {
     private:
-        std::unordered_map<unsigned int, PersonNode*> people;
+        std::unordered_map<string, PersonNode*> people;
         unsigned int totalPersonNodes;
     public:
         FamilyTree();
         unsigned int getTotalPersonNodes();
-        void addPerson(unsigned int newId);
-        void delPerson(unsigned int id);
+        void addPerson(string newId);
+        void delPerson(string id);
         void editPerson(PersonNode * p, vector<string> fieldValues);
-        PersonNode * findPerson(unsigned int id);
+        PersonNode * findPerson(string id);
         void connectPersons(PersonNode * parent, PersonNode * child);
         void disconnectPersons(PersonNode * parent, PersonNode * child);
 };

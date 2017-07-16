@@ -5,8 +5,8 @@
 //=================================================
 #include "familytree.h"
 
-typedef std::unordered_map<unsigned int, PersonNode*>::const_iterator umIter;
-typedef std::pair<unsigned int, PersonNode*> idpnPair;
+typedef std::unordered_map<string, PersonNode*>::const_iterator umIter;
+typedef std::pair<string, PersonNode*> idpnPair;
 
 FamilyTree::FamilyTree() { }
 
@@ -22,7 +22,7 @@ unsigned int FamilyTree::getTotalPersonNodes() {
  * @brief Adds 'blank' person to family tree.
  * @param newId unique identifier for person node
  */
-void FamilyTree::addPerson(unsigned int newId) {
+void FamilyTree::addPerson(string newId) {
     PersonNode * newPer = new PersonNode(newId);
     idpnPair newPair (newId, newPer);
     people.insert(newPair);
@@ -32,7 +32,7 @@ void FamilyTree::addPerson(unsigned int newId) {
  * @brief Removes specific person from family tree.
  * @param id unique identifier for person node
  */
-void FamilyTree::delPerson(unsigned int id) {
+void FamilyTree::delPerson(string id) {
     umIter finding = people.find(id);
     if (finding == people.end()) {
         throw runtime_error("FamilyTree::delPerson(): Person to delete not found!");
@@ -47,7 +47,7 @@ void FamilyTree::delPerson(unsigned int id) {
  * @param id unique identifier for person node
  * @return PersonNode pointer if exists, nullptr otherwise
  */
-PersonNode * FamilyTree::findPerson(unsigned int id) {
+PersonNode * FamilyTree::findPerson(string id) {
     umIter finding = people.find(id);
     if (finding == people.end()) {
         return nullptr;
