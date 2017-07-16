@@ -25,8 +25,7 @@ PersonNode::PersonNode(unsigned int newId, PersonNode * f, PersonNode * m)
 
 PersonNode::~PersonNode() {
     delete p;
-    delete father;
-    delete mother;
+    // remove pointers to this person node.
 }
 
 // NOTE: See personnode.h for template method declarations and body.

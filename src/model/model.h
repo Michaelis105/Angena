@@ -6,6 +6,8 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <vector>
+
 // The model contains a family tree to operate on when a UI event occurs.
 #include "familyTree.h"
 #include "fileIO.h"

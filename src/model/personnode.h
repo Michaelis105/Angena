@@ -18,8 +18,6 @@ class PersonNode
          * enough generations dating back to around the 1600s. */
         unsigned int id;
         Person * p;
-
-    protected:
         PersonNode * mother;
         PersonNode * father;
         PersonNode * partner;

@@ -5,40 +5,55 @@
 //=================================================
 #include "familytree.h"
 
-FamilyTree::FamilyTree()
-{
-    /* Track maximum 65535 individuals covering enough generations
-     * dating back to around the 1600s. */
-    unsigned int totalPersonNodes = 0;
-    // Store all persons in some data structure, maybe hash table?
-}
+typedef std::unordered_map<unsigned int, PersonNode*>::const_iterator umIter;
+typedef std::pair<unsigned int, PersonNode*> idpnPair;
+
+FamilyTree::FamilyTree() { }
 
 /**
  * @brief Gets total number of person nodes counted in family tree
  * @return 0-65535
  */
 unsigned int FamilyTree::getTotalPersonNodes() {
-    return totalPersonNodes;
+    return people.size();
 }
 
-/*
- * Adds a new person to the family tree.
+/**
+ * @brief Adds 'blank' person to family tree.
+ * @param newId unique identifier for person node
  */
 void FamilyTree::addPerson(unsigned int newId) {
-    PersonNode * newP = new PersonNode(newId);
-    // Record person.
-    totalPersonNodes++;
+    PersonNode * newPer = new PersonNode(newId);
+    idpnPair newPair (newId, newPer);
+    people.insert(newPair);
 }
 
-/*
- * Removes a specific person from the family tree.
- * Disconnects the relationship between person and others
- * as necessary.
- * Input: person
+/**
+ * @brief Removes specific person from family tree.
+ * @param id unique identifier for person node
  */
-void FamilyTree::delPerson(PersonNode * p) {
-    // Delete person.
-    totalPersonNodes--;
+void FamilyTree::delPerson(unsigned int id) {
+    umIter finding = people.find(id);
+    if (finding == people.end()) {
+        throw runtime_error("FamilyTree::delPerson(): Person to delete not found!");
+    } else {
+        people.erase(finding);
+        delete finding->second; // Delete person node from model.
+    }
+}
+
+/**
+ * @brief Finds specific person in family tree.
+ * @param id unique identifier for person node
+ * @return PersonNode pointer if exists, nullptr otherwise
+ */
+PersonNode * FamilyTree::findPerson(unsigned int id) {
+    umIter finding = people.find(id);
+    if (finding == people.end()) {
+        return nullptr;
+    } else {
+        return finding->second;
+    }
 }
 
 /*
@@ -47,7 +62,7 @@ void FamilyTree::delPerson(PersonNode * p) {
  *        field  -
  *        data   -
  */
-void editPerson(PersonNode * p, vector<string> fieldValues) {
+void FamilyTree::editPerson(PersonNode * p, vector<string> fieldValues) {
     // Process fieldValues? Or do it in model?
 }
 
