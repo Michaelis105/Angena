@@ -15,7 +15,13 @@ class DialogSaveConfirmation : public QDialog
         explicit DialogSaveConfirmation(QWidget *parent = 0);
         ~DialogSaveConfirmation();
 
-    private:
+private slots:
+    void on_pushButtonSave_clicked();
+    void on_pushButtonSaveAs_clicked();
+    void on_pushButtonDoNotSave_clicked();
+    void on_pushButtonCancel_clicked();
+
+private:
         Ui::DialogSaveConfirmation *ui;
 };
 

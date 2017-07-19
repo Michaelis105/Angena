@@ -35,19 +35,9 @@
    <iconset>
     <normaloff>../../floweroflife.png</normaloff>../../floweroflife.png</iconset>
   </property>
-  <widget class="QPushButton" name="close_button">
-   <property name="geometry">
-    <rect>
-     <x>380</x>
-     <y>130</y>
-     <width>80</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Close</string>
-   </property>
-  </widget>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
   <widget class="QLabel" name="picture_label">
    <property name="geometry">
     <rect>
@@ -116,6 +106,19 @@
      <bool>true</bool>
     </property>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButtonClose">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>130</y>
+     <width>80</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
   </widget>
  </widget>
  <resources/>

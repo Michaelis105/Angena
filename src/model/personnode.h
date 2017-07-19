@@ -24,7 +24,6 @@ class PersonNode
         Person * p;
         PersonNode * mother;
         PersonNode * father;
-        PersonNode * partner;
         vector<PersonNode *> offspring;
 
     public:

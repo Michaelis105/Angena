@@ -10,3 +10,23 @@ DialogSaveConfirmation::~DialogSaveConfirmation()
 {
     delete ui;
 }
+
+void DialogSaveConfirmation::on_pushButtonSave_clicked()
+{
+
+}
+
+void DialogSaveConfirmation::on_pushButtonSaveAs_clicked()
+{
+
+}
+
+void DialogSaveConfirmation::on_pushButtonDoNotSave_clicked()
+{
+
+}
+
+void DialogSaveConfirmation::on_pushButtonCancel_clicked()
+{
+
+}
