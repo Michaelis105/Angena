@@ -38,7 +38,6 @@ class Angena : public QMainWindow
         void on_actionRecent_Files_triggered();
         void on_actionPrint_triggered();
         void on_actionExit_triggered();
-        void on_actionPreferences_triggered();
         void on_actionUndo_triggered();
         void on_actionRedo_triggered();
         void on_actionAdd_Person_triggered();
@@ -46,6 +45,7 @@ class Angena : public QMainWindow
         void on_actionEdit_Person_triggered();
         void redrawGraphicsView();
         void clearGraphicsView();
+        void on_pushButtonSavePerson_clicked();
 };
 
 #endif // ANGENA_H

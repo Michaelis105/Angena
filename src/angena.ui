@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
-    <height>859</height>
+    <width>972</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -60,514 +60,561 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <property name="leftMargin">
-        <number>2</number>
-       </property>
-       <property name="topMargin">
-        <number>2</number>
-       </property>
-       <property name="rightMargin">
-        <number>2</number>
-       </property>
-       <property name="bottomMargin">
-        <number>2</number>
-       </property>
-       <item row="1" column="0">
-        <widget class="QSplitter" name="mainFrameSplitter">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QGraphicsView" name="graphicsView"/>
+       </item>
+       <item>
+        <widget class="QFrame" name="sideInfoPanel">
+         <property name="frameShape">
+          <enum>QFrame::Panel</enum>
          </property>
-         <property name="handleWidth">
-          <number>5</number>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QGraphicsView" name="graphicsView"/>
-         <widget class="QFrame" name="sideInfoPanel">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <widget class="QTabWidget" name="tabWidget">
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTabWidget" name="tabWidget">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>500</width>
+              <height>90000</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>3</number>
+            </property>
+            <widget class="QWidget" name="tabMainInfo">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Ignored">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>625</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>400</width>
-               <height>9000</height>
-              </size>
-             </property>
-             <property name="currentIndex">
-              <number>1</number>
-             </property>
-             <widget class="QWidget" name="tabMainInfo">
-              <attribute name="title">
-               <string>Main Info</string>
-              </attribute>
-              <layout class="QGridLayout" name="gridLayout_10">
-               <item row="0" column="0">
-                <layout class="QGridLayout" name="gridLayout_8">
-                 <item row="0" column="0">
-                  <widget class="QFrame" name="frame_3">
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_4">
-                    <item>
-                     <layout class="QGridLayout" name="gridLayout_4">
-                      <item row="4" column="1">
-                       <widget class="QLineEdit" name="lineEdit_5"/>
-                      </item>
-                      <item row="1" column="1">
-                       <widget class="QLineEdit" name="lineEdit_2"/>
-                      </item>
-                      <item row="0" column="1">
-                       <widget class="QLineEdit" name="lineEdit"/>
-                      </item>
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label">
-                        <property name="text">
-                         <string>Title:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="0">
-                       <widget class="QLabel" name="label_2">
-                        <property name="text">
-                         <string>First Name:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="3" column="0">
-                       <widget class="QLabel" name="label_4">
-                        <property name="text">
-                         <string>Last Name:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="4" column="0">
-                       <widget class="QLabel" name="label_5">
-                        <property name="text">
-                         <string>Nick Name:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="2" column="0">
-                       <widget class="QLabel" name="label_3">
-                        <property name="text">
-                         <string>Middle Name:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="3" column="1">
-                       <widget class="QLineEdit" name="lineEdit_4"/>
-                      </item>
-                      <item row="2" column="1">
-                       <widget class="QLineEdit" name="lineEdit_3"/>
-                      </item>
-                      <item row="5" column="1">
-                       <widget class="QComboBox" name="comboBox"/>
-                      </item>
-                      <item row="5" column="0">
-                       <widget class="QLabel" name="label_6">
-                        <property name="text">
-                         <string>Suffix:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="6" column="1">
-                       <widget class="QComboBox" name="comboBox_2"/>
-                      </item>
-                      <item row="6" column="0">
-                       <widget class="QLabel" name="label_7">
-                        <property name="text">
-                         <string>Sex:</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QFrame" name="frame_4">
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QGridLayout" name="gridLayout_5">
-                    <item row="0" column="0">
-                     <layout class="QFormLayout" name="formLayout">
-                      <item row="1" column="0">
-                       <widget class="QLabel" name="label_9">
-                        <property name="text">
-                         <string>Father:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="2" column="0">
-                       <widget class="QLabel" name="label_10">
-                        <property name="text">
-                         <string>Offspring:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="2" column="1">
-                       <widget class="QListView" name="listView"/>
-                      </item>
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label_8">
-                        <property name="text">
-                         <string>Mother:</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="tab_2">
-              <attribute name="title">
-               <string>Addresses and Dates</string>
-              </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <widget class="QFrame" name="frame_7">
-                 <property name="layoutDirection">
-                  <enum>Qt::LeftToRight</enum>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_3">
-                  <item row="1" column="1">
-                   <widget class="QSpinBox" name="spinBox"/>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_11">
-                    <property name="text">
-                     <string>Date:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_12">
-                    <property name="text">
-                     <string>Month:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="label_13">
-                    <property name="text">
-                     <string>Day:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QLabel" name="label_14">
-                    <property name="text">
-                     <string>Year:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QSpinBox" name="spinBox_2"/>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QSpinBox" name="spinBox_3"/>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_8">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_6">
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="lineEdit_11"/>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_22">
-                    <property name="text">
-                     <string>Country:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="lineEdit_12"/>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_15">
-                    <property name="text">
-                     <string>State/Province:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_23">
-                    <property name="text">
-                     <string>City:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit_6"/>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_17">
-                    <property name="text">
-                     <string>Address:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QLineEdit" name="lineEdit_7"/>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_16">
-                    <property name="text">
-                     <string>Zip Code:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QLineEdit" name="lineEdit_8"/>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QFormLayout" name="formLayout_2">
-                  <item row="0" column="0">
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QLabel" name="label_18">
-                      <property name="text">
-                       <string>Living Status:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QRadioButton" name="radioButton_2">
-                      <property name="text">
-                       <string>Alive</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QRadioButton" name="radioButton">
-                      <property name="text">
-                       <string>Deceased/Unknown</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                 <zorder>frame_8</zorder>
-                 <zorder>label_18</zorder>
-                 <zorder>radioButton</zorder>
-                 <zorder>radioButton_2</zorder>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_2">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_11">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_19">
-                    <property name="text">
-                     <string>Month:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QSpinBox" name="spinBox_4"/>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="label_20">
-                    <property name="text">
-                     <string>Day:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="3">
-                   <widget class="QSpinBox" name="spinBox_5"/>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="QLabel" name="label_21">
-                    <property name="text">
-                     <string>Year:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="5">
-                   <widget class="QSpinBox" name="spinBox_6"/>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_6">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_12">
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_28">
-                    <property name="text">
-                     <string>Zip Code:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_24">
-                    <property name="text">
-                     <string>Address:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_27">
-                    <property name="text">
-                     <string>State/Province:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_26">
-                    <property name="text">
-                     <string>City:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_25">
-                    <property name="text">
-                     <string>Country:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="lineEdit_9"/>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="lineEdit_10"/>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit_13"/>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QLineEdit" name="lineEdit_14"/>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QLineEdit" name="lineEdit_15"/>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>1000</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="tab_3">
-              <attribute name="title">
-               <string>Notes</string>
-              </attribute>
-              <layout class="QGridLayout" name="gridLayout_9">
-               <item row="0" column="0">
-                <widget class="QSplitter" name="splitter_3">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <widget class="QFrame" name="frame_5">
+             <attribute name="title">
+              <string>Main Info</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayoutTabMainInfo">
+                <item row="0" column="0">
+                 <widget class="QFrame" name="frameMainTop">
                   <property name="frameShape">
                    <enum>QFrame::StyledPanel</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_7">
-                   <item row="0" column="0">
-                    <widget class="QPlainTextEdit" name="plainTextEdit"/>
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <item>
+                    <layout class="QGridLayout" name="gridLayoutMainTop">
+                     <item row="4" column="1">
+                      <widget class="QLineEdit" name="lineEditNickName"/>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="lineEditFirstName"/>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="lineEditTitle"/>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="labelTitle">
+                       <property name="text">
+                        <string>Title:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="labelFirstName">
+                       <property name="text">
+                        <string>First Name:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="labelLastName">
+                       <property name="text">
+                        <string>Last Name:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QLabel" name="labelNickName">
+                       <property name="text">
+                        <string>Nick Name:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="labelMiddleName">
+                       <property name="text">
+                        <string>Middle Name:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QLineEdit" name="lineEditLastName"/>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="lineEditMiddleName"/>
+                     </item>
+                     <item row="5" column="1">
+                      <widget class="QComboBox" name="comboBoxSuffix"/>
+                     </item>
+                     <item row="5" column="0">
+                      <widget class="QLabel" name="labelSuffix">
+                       <property name="text">
+                        <string>Suffix:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="6" column="1">
+                      <widget class="QComboBox" name="comboBoxSex"/>
+                     </item>
+                     <item row="6" column="0">
+                      <widget class="QLabel" name="labelSex">
+                       <property name="text">
+                        <string>Sex:</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </item>
                   </layout>
                  </widget>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="tab_4">
-              <attribute name="title">
-               <string>Other</string>
-              </attribute>
-             </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QFrame" name="frameConnects">
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_5">
+                   <item row="0" column="0">
+                    <layout class="QFormLayout" name="formLayoutConnect">
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="labelFather">
+                       <property name="text">
+                        <string>Father:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="labelOffspring">
+                       <property name="text">
+                        <string>Offspring:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QListView" name="listViewOffspring"/>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="labelMother">
+                       <property name="text">
+                        <string>Mother:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QListView" name="listViewMother"/>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QListView" name="listViewFather"/>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </widget>
-           </item>
-          </layout>
-         </widget>
+            <widget class="QWidget" name="tabAddressesDates">
+             <attribute name="title">
+              <string>Addresses and Dates</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QFrame" name="frameBirthDate">
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="1" column="1">
+                  <widget class="QSpinBox" name="spinBoxBirthMonth"/>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelBirthDate">
+                   <property name="text">
+                    <string>Birth Date:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelBirthMonth">
+                   <property name="text">
+                    <string>Month:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QLabel" name="labelBirthDay">
+                   <property name="text">
+                    <string>Day:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="4">
+                  <widget class="QLabel" name="labelBirthYear">
+                   <property name="text">
+                    <string>Year:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="3">
+                  <widget class="QSpinBox" name="spinBoxBirthDay"/>
+                 </item>
+                 <item row="1" column="5">
+                  <widget class="QSpinBox" name="spinBoxBirthYear"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frameBirthAddress">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_6">
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="lineEditBirthAddress"/>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLineEdit" name="lineEditBirthCity"/>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="labelBirthStProv">
+                   <property name="text">
+                    <string>State/Province:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="labelBirthCountry">
+                   <property name="text">
+                    <string>Country:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="labelBirthCity">
+                   <property name="text">
+                    <string>City:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="lineEditBirthCountry"/>
+                 </item>
+                 <item row="5" column="1">
+                  <widget class="QLineEdit" name="lineEditBirthZipCode"/>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="labelBirthZipCode">
+                   <property name="text">
+                    <string>Zip Code:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelBirthAddress">
+                   <property name="text">
+                    <string>Address:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QLineEdit" name="lineEditBirthStProv"/>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelBirthAddress_2">
+                   <property name="text">
+                    <string>Birth Address:</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frameLivingStatus">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="0" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayoutLivingStatus">
+                   <item>
+                    <widget class="QLabel" name="labelLivingStatus">
+                     <property name="text">
+                      <string>Living Status:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QRadioButton" name="radioButtonAlive">
+                     <property name="text">
+                      <string>Alive</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QRadioButton" name="radioButtonDeadUnk">
+                     <property name="text">
+                      <string>Deceased/Unknown</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frameDeathDate">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_11">
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelDeathMonth">
+                   <property name="text">
+                    <string>Month:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QSpinBox" name="spinBoxDeathMonth"/>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QLabel" name="labelDeathDay">
+                   <property name="text">
+                    <string>Day:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="5">
+                  <widget class="QSpinBox" name="spinBoxDeathYear"/>
+                 </item>
+                 <item row="1" column="3">
+                  <widget class="QSpinBox" name="spinBoxDeathDay"/>
+                 </item>
+                 <item row="1" column="4">
+                  <widget class="QLabel" name="labelDeathYear">
+                   <property name="text">
+                    <string>Year:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelDeathDate">
+                   <property name="text">
+                    <string>Death Date:</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frameDeathAddress">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_12">
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="labelDeathZipCode">
+                   <property name="text">
+                    <string>Zip Code:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="labelDeathAddress_2">
+                   <property name="text">
+                    <string>Address:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="labelDeathCity">
+                   <property name="text">
+                    <string>City:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="labelDeathStProv">
+                   <property name="text">
+                    <string>State/Province:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="lineEditDeathCountry"/>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="labelDeathCountry">
+                   <property name="text">
+                    <string>Country:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QLineEdit" name="lineEditDeathStProv"/>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="lineEditDeathAddress"/>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QLineEdit" name="lineEditDeathCity"/>
+                 </item>
+                 <item row="5" column="1">
+                  <widget class="QLineEdit" name="lineEditDeathZipCode"/>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="labelDeathAddress">
+                   <property name="text">
+                    <string>Death Address:</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>1000</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabNotes">
+             <attribute name="title">
+              <string>Notes</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0">
+               <widget class="QSplitter" name="splitterNotes">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <widget class="QFrame" name="frameNotes">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_7">
+                  <item row="0" column="0">
+                   <widget class="QPlainTextEdit" name="plainTextEditNotes"/>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabOther">
+             <attribute name="title">
+              <string>Other</string>
+             </attribute>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frameSideCommit">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="leftMargin">
+              <number>90</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButtonSavePerson">
+               <property name="text">
+                <string>Save</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonRevert">
+               <property name="text">
+                <string>Revert</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -580,7 +627,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1082</width>
+     <width>972</width>
      <height>20</height>
     </rect>
    </property>
@@ -606,7 +653,6 @@
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
     <addaction name="separator"/>
-    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">

@@ -23,8 +23,8 @@ Angena::~Angena() { delete ui; }
 //
 /////////////////////////////////
 
-/*
- * Creates new family tree.
+/**
+ * @brief Creates new family tree on click.
  */
 void Angena::on_actionNew_triggered()
 {
@@ -42,9 +42,8 @@ void Angena::on_actionNew_triggered()
     Angena::clearGraphicsView();
 }
 
-/*
- * Opens existing family tree.
- * Input (dialog): filename - selected file name from file dialog.
+/**
+ * @brief Opens existing family tree on click.
  */
 void Angena::on_actionOpen_triggered()
 {
@@ -71,26 +70,21 @@ void Angena::on_actionOpen_triggered()
     }
 }
 
-/*
- * Commits family tree state to an existing/opened file.
+/**
+ * @brief Commits family tree state to an existing/opened file on click.
  */
 void Angena::on_actionSave_triggered()
 {
-    qDebug() << "Saving new tree state.";
-    // Only enable if there is a change or undo resolved to original state
-    // Does not apply for now...
-    QUuid newId = QUuid::createUuid();
-    qDebug() << newId;
-
-    // If a file does not exist, call save_as() and retrieve a file name/path
+    // If a file does not exist or never registered, call save_as() and retrieve a file name/path
+    // Else
     // Save tree state to file path.
     // Update save status bar.
 }
 
-/*
- * Saves family tree state to a new file.
- * Displays dialog to determine save file path in GEDCOM format to disk.
- * Also called by other functions.
+/**
+ * @brief Saves family tree state to a new file on click.
+ *        Displays dialog to determine save file path in GEDCOM format to disk.
+ *        Also called by other functions.
  */
 void Angena::on_actionSave_As_triggered()
 {
@@ -99,8 +93,8 @@ void Angena::on_actionSave_As_triggered()
     // TODO: Call the writer to generate GEDCOM based on family tree state.
 }
 
-/*
- * Closes currently opened family tree.
+/**
+ * @brief Closes currently opened family tree on click.
  */
 void Angena::on_actionClose_triggered()
 {
@@ -113,13 +107,12 @@ void Angena::on_actionClose_triggered()
     // Disable necessary inputs.
 }
 
-/*
- * Opens previously opened tree states.
- * Input: recentTree - clicked filename from recent files menu.
+/**
+ * @brief Opens previously opened tree states on click.
  */
-// TODO: How should I keep track of recently opened file during runtime and after closing?
 void Angena::on_actionRecent_Files_triggered()
 {
+    // TODO: How should I keep track of recently opened file during runtime and after closing?
     // If there were not any recently opened file, then throw an error (change return type?).
     // The menu link should not have been enabled in the first place.
     qDebug() << "Opening recent file";
@@ -128,8 +121,8 @@ void Angena::on_actionRecent_Files_triggered()
     // NOTE: Method not implemented!
 }
 
-/*
- * Prints current tree state visualization.
+/**
+ * @brief Prints current tree state visualization on click.
  */
 void Angena::on_actionPrint_triggered()
 {
@@ -138,8 +131,8 @@ void Angena::on_actionPrint_triggered()
     // standard printing functionality such as choose printer, size, layout, etc...
 }
 
-/*
- * Terminates Angena application.
+/**
+ * @brief Terminates Angena application on click.
  */
 void Angena::on_actionExit_triggered()
 {
@@ -149,18 +142,11 @@ void Angena::on_actionExit_triggered()
     // TODO: Destroy stuff as needed.
 }
 
-/*
- * Displays preferences/settings prompt.
- */
-void Angena::on_actionPreferences_triggered()
-{
-    // Show the preferences dialog.
-    // On Save, commit to model, close dialog
-    // On cancel, close dialog
-}
 
-/*
- * Displays dialog regarding simple information about Angena.
+/**
+ * @brief Displays dialog containing simple version,
+ *        repository, and legal information pertaining
+ *        to Angena on click.
  */
 void Angena::on_actionAbout_triggered()
 {
@@ -173,8 +159,8 @@ void Angena::on_actionAbout_triggered()
 //
 ///////////////////////
 
-/*
- * Reverts to previous tree state before change.
+/**
+ * @brief Reverts to previous tree state before change on click.
  */
 void Angena::on_actionUndo_triggered()
 {
@@ -182,8 +168,8 @@ void Angena::on_actionUndo_triggered()
     // NOTE: Method not implemented!
 }
 
-/*
- * Returns tree state to next more recent version. Usually after undone.
+/**
+ * @brief Returns tree state to next more recent version. Usually after undone.
  */
 void Angena::on_actionRedo_triggered()
 {
@@ -191,8 +177,8 @@ void Angena::on_actionRedo_triggered()
     // NOTE: Method not implemented!
 }
 
-/*
- * Adds new person to the current tree state.
+/**
+ * @brief Adds new person to the current tree state on click.
  */
 void Angena::on_actionAdd_Person_triggered()
 {
@@ -202,8 +188,8 @@ void Angena::on_actionAdd_Person_triggered()
     // Pass to model
 }
 
-/*
- * Removes selected person from the current tree state.
+/**
+ * @brief Removes selected person from the current tree state on click.
  */
 void Angena::on_actionRemove_Person_triggered()
 {
@@ -215,17 +201,14 @@ void Angena::on_actionRemove_Person_triggered()
     // On Ok, commit to model, remove dialog, update view.
 }
 
-/*
- * Edits selected person in the current tree state.
+/**
+ * @brief Commits all side info entries to selected person on click.
  */
-void Angena::on_actionEdit_Person_triggered()
+void Angena::on_pushButtonSavePerson_clicked()
 {
-    qDebug() << "Edit!";
-    // Get currently selected person.
-    // If selected, continue, else throw exception (option should be disabled).
-    // Open dialog
-    // On Cancel, remove dialog
-    // On Ok, commit to model, remove dialog, update view.
+    // Is there a selected person?
+    // What are the changes?
+    // Commit each change to person via model.
 }
 
 ////////////////////
@@ -251,3 +234,5 @@ void Angena::clearGraphicsView()
     qDebug() << "Clear!";
     // Clear graphics view.
 }
+
+
