@@ -42,7 +42,6 @@ class Angena : public QMainWindow
         void on_actionRedo_triggered();
         void on_actionAdd_Person_triggered();
         void on_actionRemove_Person_triggered();
-        void on_actionEdit_Person_triggered();
         void redrawGraphicsView();
         void clearGraphicsView();
         void on_pushButtonSavePerson_clicked();

@@ -209,7 +209,44 @@ void Angena::on_pushButtonSavePerson_clicked()
     // Is there a selected person?
     // What are the changes?
     // Commit each change to person via model.
+    QString fn = ui->lineEditFirstName->text();
+    QString mn = ui->lineEditMiddleName->text();
+    QString ln = ui->lineEditLastName->text();
+    QString nn = ui->lineEditNickName->text();
+    QString tt = ui->lineEditTitle->text();
+
+    QVariant sex = ui->comboBoxSex->itemData(ui->comboBoxSex->currentIndex());
+    QVariant suf = ui->comboBoxSuffix->itemData(ui->comboBoxSuffix->currentIndex());
+
+    int bm = ui->spinBoxBirthMonth->value();
+    int bd = ui->spinBoxBirthDay->value();
+    int by = ui->spinBoxBirthYear->value();
+
+    QString bad = 0ui->lineEditBirthAddress->text();
+    QString bco = ui->lineEditBirthCountry->text();
+    QString bct = ui->lineEditBirthCity->text();
+    QString bsp = ui->lineEditBirthStProv->text();
+    QString bzc = ui->lineEditBirthZipCode->text();
+
+    int dm = ui->spinBoxDeathMonth->value();
+    int dd = ui->spinBoxDeathDay->value();
+    int dy = ui->spinBoxDeathYear->value();
+
+    bool alive = ui->radioButtonAlive->isChecked();
+    bool deadunk = ui->radioButtonDeadUnk->isChecked();
+
+    QString dad = ui->lineEditDeathAddress->text();
+    QString dco = ui->lineEditDeathCountry->text();
+    QString dct = ui->lineEditDeathCity->text();
+    QString dsp = ui->lineEditDeathStProv->text();
+    QString dzc = ui->lineEditDeathZipCode->text();
+
+    QString nt = ui->plainTextEditNotes->toPlainText();
+
+    // TODO: Send to model.
 }
+
+// TODO: Method to update all widgets after new person is selected.
 
 ////////////////////
 //

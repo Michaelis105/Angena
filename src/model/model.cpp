@@ -8,7 +8,7 @@
 Model::Model() {
     FamilyTree curft;
     FileIO fio;
-    //PersonNode * curSelPerson = nullptr;
+    PersonNode * curSelPerson = nullptr;
     //personNode * clipboard = nullptr;
     //std::deque<> history;
 }
@@ -48,6 +48,7 @@ void Model::delPerson() {
  *        data   -
  */
 void Model::editPerson() {
+    curSelPerson->p->setNames();
 }
 
 /*
