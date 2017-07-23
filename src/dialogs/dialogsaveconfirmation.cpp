@@ -9,7 +9,7 @@
 DialogSaveConfirmation::DialogSaveConfirmation(QWidget *parent) : QDialog(parent), ui(new Ui::DialogSaveConfirmation)
 {
     ui->setupUi(this);
-    saveAction = 3;
+    saveAction = -1;
 }
 
 DialogSaveConfirmation::~DialogSaveConfirmation() { delete ui; }
@@ -21,3 +21,9 @@ void DialogSaveConfirmation::on_pushButtonSaveAs_clicked() { saveAction = 1; }
 void DialogSaveConfirmation::on_pushButtonDoNotSave_clicked() { saveAction = 2; }
 
 void DialogSaveConfirmation::on_pushButtonCancel_clicked() { saveAction = 3; }
+
+int DialogSaveConfirmation::getSaveAction() {
+    int temp = saveAction;
+    saveAction = -1;
+    return temp;
+}

@@ -24,19 +24,39 @@ Angena::~Angena() { delete ui; }
 /////////////////////////////////
 
 /**
+ * @brief Processes save confirmation dialog action
+ * @post Respective action from confirmation dialog is processed.
+ * @return true if continue with parent caller action, false to discontinue
+ */
+bool Angena::processSaveConfirmationDialog() {
+    switch (d.dsc.getSaveAction()) {
+        case -1: break; // No option selected, default to action
+        case 0: on_actionSave_triggered();
+                break;
+        case 1: on_actionSave_As_triggered();
+                break;
+        case 3: return false; // Cancelled, discontinue action.
+        case 2: break; // Do not save, no action, parent caller continues.
+        default: qDebug() << "Angena::processSaveConfirmationDialog(): Could not determine save action!";
+        // Defaults to parent caller action
+    }
+    return true;
+}
+
+/**
  * @brief Creates new family tree on click.
  */
 void Angena::on_actionNewFamily_triggered()
 {
     qDebug() << "Creating new tree.";
-
-    // If there is another tree open currently, prompt for save/close.
-    if (m.isTreeOpen()) {
+    if (m.isTreeOpen() && m.isChanged()) {
         d.showSaveConfirmationDialog();
     }
-    m.cleanUp();
-    m.initializeNewFamilyTree();
-    clearGraphicsView();
+    if (processSaveConfirmationDialog()) {
+        m.cleanUp();
+        m.initializeNewFamilyTree();
+        clearGraphicsView();
+    }
 }
 
 /**
@@ -45,25 +65,19 @@ void Angena::on_actionNewFamily_triggered()
 void Angena::on_actionOpen_triggered()
 {
     qDebug() << "Opening new tree.";
-
-    // If there is another tree open currently, prompt for save/close.
-    if (m.isTreeOpen()) {
+    if (m.isTreeOpen() && m.isChanged()) {
         d.showSaveConfirmationDialog();
     }
-
-    // If not cancelled, do nothing.
-    // Else continue.
-
-    // Browse for tree file.
-    QString filename = QFileDialog::getOpenFileName(this, "C://", "GEDCOM (*.txt)");
-    qDebug() << filename;
-    if (filename != NULL) {
-        // Extract tree state from file.
-
-        // Set family tree state to reflect the retrieved state.
-
-        // Update graphic view
-
+    if (processSaveConfirmationDialog()) {
+        QString filename = QFileDialog::getOpenFileName(this, "C://", "GEDCOM (*.txt)");
+        qDebug() << filename;
+        if (filename != NULL && filename.size() > 0) {
+            m.cleanUp();
+            clearGraphicsView();
+            m.initializeNewFamilyTree();
+            m.openTreeState(filename.toStdString());
+            redrawGraphicsView();
+        }
     }
 }
 
@@ -72,10 +86,12 @@ void Angena::on_actionOpen_triggered()
  */
 void Angena::on_actionSave_triggered()
 {
-    // If a file does not exist or never registered, call save_as() and retrieve a file name/path
-    // Else
-    // Save tree state to file path.
-    // Update save status bar.
+    qDebug() << "Saving new tree state...";
+    if (!m.hasFilename()) {
+        on_actionSave_As_triggered();
+    } else {
+        m.saveTreeState();
+    }
 }
 
 /**
@@ -85,9 +101,12 @@ void Angena::on_actionSave_triggered()
  */
 void Angena::on_actionSave_As_triggered()
 {
-    qDebug() << "Saving new tree state as...";
-    // TODO: Dialog box.
-    // TODO: Call the writer to generate GEDCOM based on family tree state.
+    qDebug() << "Saving as new tree state...";
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save Family Tree"),
+                                                    "", tr("Angena Family Tree (*.aft);;All Files (*)"));
+    if (filename != NULL && filename.size() > 0) {
+        m.saveTreeState(filename.toStdString());
+    }
 }
 
 /**
@@ -95,13 +114,14 @@ void Angena::on_actionSave_As_triggered()
  */
 void Angena::on_actionClose_triggered()
 {
-    // TODO: Prompt save if tree state has changed.
-    // TODO: Or prompt save as if file never existed.
     qDebug() << "Closing tree.";
-    // Nullify model tree state.
-    // Free memory.
-    // Update display.
-    // Disable necessary inputs.
+    if (m.isTreeOpen() && m.isChanged()) {
+        d.showSaveConfirmationDialog();
+    }
+    if (processSaveConfirmationDialog()) {
+        m.cleanUp();
+        clearGraphicsView();
+    }
 }
 
 /**
@@ -120,12 +140,15 @@ void Angena::on_actionPrint_triggered()
 void Angena::on_actionExit_triggered()
 {
     qDebug() << "Shutting application down.";
-    // TODO: Prompt save if tree state has changed.
-    // TODO: Destroy stuff as needed.
-    close();
-
+    if (m.isTreeOpen() && m.isChanged()) {
+        d.showSaveConfirmationDialog();
+    }
+    if (processSaveConfirmationDialog()) {
+        m.cleanUp();
+        clearGraphicsView(); // NOTE: Is clearing view necessary if closing application?
+        close();
+    }
 }
-
 
 /**
  * @brief Displays dialog containing simple version,
@@ -167,9 +190,12 @@ void Angena::on_actionRedo_triggered()
 void Angena::on_actionAdd_Person_triggered()
 {
     qDebug() << "Add!";
-    // Add person dialog
-    // Retrieve all information
-    // Pass to model
+    if (m.isTreeOpen()) {
+        m.addPerson();
+        redrawGraphicsView();
+    } else {
+        throw runtime_error("Angena::on_actionAdd_Person_triggered(): Cannot add person if family tree isn't open!");
+    }
 }
 
 /**
@@ -178,11 +204,13 @@ void Angena::on_actionAdd_Person_triggered()
 void Angena::on_actionRemove_Person_triggered()
 {
     qDebug() << "Remove!";
-    // Get currently selected person.
-    // If selected, continue, else throw exception (option should be disabled).
-    // Open dialog
-    // On Cancel, remove dialog
-    // On Ok, commit to model, remove dialog, update view.
+    if (!m.isTreeOpen()) {
+        throw runtime_error("Angena::on_actionRemove_Person_triggered(): Cannot remove person if family tree isn't open!");
+    } else if (m.getCurSelPerson() == nullptr) {
+        throw runtime_error("Angena::on_actionRemove_Person_triggered(): Cannot remove person if not selected!");
+    } else {
+        m.delPerson();
+    }
 }
 
 /**
@@ -241,11 +269,17 @@ void Angena::on_pushButtonSavePerson_clicked()
     } else {
         qDebug() << "UI Error: Error identifying living state!";
     }
-
     m.editPerson(names, sex, birthDate, birthAddr, nt, deathDate, deathAddr, living);
 }
 
-// TODO: Method to update all widgets after new person is selected.
+/**
+ * @brief Updates information panel with person's details.
+ * @post Side info panel fields contain person's details
+ */
+void Angena::updatePersonDetails() {
+    m.updatePersonTempStore();
+    // TODO: Implement
+}
 
 ////////////////////
 //

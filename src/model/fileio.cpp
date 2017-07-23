@@ -31,3 +31,7 @@ void FileIO::saveFile() {
     //clear file (what if something happens midway???)
     //write many times to it
 }
+
+void FileIO::clearFileName() {
+    filename = "";
+}

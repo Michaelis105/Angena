@@ -30,6 +30,7 @@ class Angena : public QMainWindow
         Ui::Angena *ui;
         Model m;
         Dialog d;
+        bool processSaveConfirmationDialog();
 
     private slots:
         void on_actionNewFamily_triggered();
@@ -44,10 +45,10 @@ class Angena : public QMainWindow
         void on_actionRedo_triggered();
         void on_actionAdd_Person_triggered();
         void on_actionRemove_Person_triggered();
+        void on_pushButtonSavePerson_clicked();
+        void updatePersonDetails();
         void redrawGraphicsView();
         void clearGraphicsView();
-        void on_pushButtonSavePerson_clicked();
-
 };
 
 #endif // ANGENA_H

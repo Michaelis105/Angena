@@ -20,9 +20,11 @@ class Model
         FamilyTree * curft;
         FileIO fio;
         //personNode * clipboard;
+        bool hasChanged;
 
     public:
         Model();
+        bool isChanged();
         void initializeNewFamilyTree();
         void addPerson();
         void delPerson();
@@ -35,11 +37,14 @@ class Model
         void undo();
         void redo();
         void clearTreeState();
-        void openTreeState();
+        void openTreeState(string filename);
         void saveTreeState();
+        void saveTreeState(string filename);
+        bool hasFilename();
         bool isTreeOpen();
-        bool isCurSelPerson();
+        PersonNode* getCurSelPerson();
         void cleanUp();
+        void updatePersonTempStore();
 };
 
 #endif // MODEL_H

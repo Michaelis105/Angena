@@ -5,6 +5,17 @@
 //==========================================================================
 #include "model.h"
 
+struct PersonDetails {
+    vector<string> names;
+    string sex;
+    vector<string> birthDate;
+    vector<string> birthAddr;
+    string notes;
+    vector<string> deathDate;
+    vector<string> deathAddr;
+    bool living;
+} tempStore;
+
 Model::Model() {
     FamilyTree * curft;
     FileIO fio;
@@ -19,8 +30,18 @@ Model::Model() {
 //
 /////////////////////////
 
+bool Model::isChanged() {
+    return hasChanged;
+}
+
+/**
+ * @brief Initializes new family tree.
+ * @pre Any previous family tree state must have already
+ *      been deallocated
+ * @post A blank family tree state
+ */
 void Model::initializeNewFamilyTree() {
-     curft = new FamilyTree();
+    curft = new FamilyTree();
 }
 
 /**
@@ -29,6 +50,7 @@ void Model::initializeNewFamilyTree() {
 void Model::addPerson() {
     QUuid newId = QUuid::createUuid();
     curft->addPerson(newId.toString().toStdString());
+    hasChanged = true;
 }
 
 /*
@@ -38,6 +60,8 @@ void Model::addPerson() {
  * Input: person
  */
 void Model::delPerson() {
+    // TODO: How should person be identified by view? PersonNode? ID?
+    hasChanged = true;
 }
 
 /*
@@ -66,6 +90,7 @@ void Model::editPerson(vector<string> names, string sex,
     } else {
         throw runtime_error( "Model::editPerson: No current selected person to edit, we shouldn't be here!" );
     }
+    hasChanged = true;
 }
 
 /*
@@ -74,6 +99,7 @@ void Model::editPerson(vector<string> names, string sex,
  */
 void Model::connectPerson() {
     // If there is already a relationship between two persons, do nothing or throw error?
+    hasChanged = true;
 }
 
 /*
@@ -81,6 +107,7 @@ void Model::connectPerson() {
  * Input: person1, person2
  */
 void Model::disconnectPerson() {
+    hasChanged = true;
 }
 
 /*
@@ -91,26 +118,11 @@ void Model::clearTreeState() {
 }
 
 /*
- * Opens a tree state (from an existing file).
- */
-void Model::openTreeState() {
-
-}
-
-/*
- * Commits the stored tree state to a file.
- */
-void Model::saveTreeState() {
-
-}
-
-/*
  * Checks if there is an existing tree state open or not.
  * @return true if open, false if not open/null.
  */
 bool Model::isTreeOpen() {
-    return false;
-    //return (curft != nullptr);
+    return (curft != nullptr);
     //if (!curft) return false;
     //else return true;
 }
@@ -118,8 +130,8 @@ bool Model::isTreeOpen() {
 /**
  * @brief Checks if there is a currently selected person.
  */
-bool Model::isCurSelPerson() {
-    return false;
+PersonNode* Model::getCurSelPerson() {
+    return curSelPerson;
 }
 
 /**
@@ -132,7 +144,60 @@ void Model::cleanUp() {
     curSelPerson = nullptr;
 }
 
+/**
+ * @brief Updates temp store with new person details.
+ * @pre A person is selected
+ * @post Store is updated
+ */
+void Model::updatePersonTempStore() {
+    if (curSelPerson != nullptr) {
+        //curSelPerson->getNames();
 
+    } else {
+        throw runtime_error("Model::updatePersonTempStore(): "
+                            "Cannot update temp storage with "
+                            "null current selected person!");
+    }
+}
+
+/////////////////////
+//
+//  File IO functions
+//
+/////////////////////
+
+/**
+ * @brief Opens tree state (from an existing file).
+ * @param filename Compatible file
+ */
+void Model::openTreeState(string filename) {
+
+}
+
+/**
+ * @brief Commits the stored tree state to a file.
+ */
+void Model::saveTreeState() {
+
+}
+
+/**
+ * @brief Commits the stored tree state to a file
+ *        specified as filename.
+ */
+void Model::saveTreeState(string filename) {
+
+}
+
+/**
+ * @brief Checks if File IO has a filename
+ *        associated with family tree state.
+ * @return true if has, false otherwise
+ */
+bool Model::hasFilename() {
+    return false;
+    // TODO: Implement
+}
 
 ///////////////////////
 //
