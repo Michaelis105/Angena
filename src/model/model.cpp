@@ -6,16 +6,11 @@
 #include "model.h"
 
 Model::Model() {
-    FamilyTree curft;
+    FamilyTree * curft;
     FileIO fio;
     PersonNode * curSelPerson = nullptr;
     //personNode * clipboard = nullptr;
     //std::deque<> history;
-}
-
-Model::~Model() {
-    // Delete all people, nodes, and data.
-    // Close all streams.
 }
 
 /////////////////////////
@@ -29,7 +24,7 @@ Model::~Model() {
  */
 void Model::addPerson() {
     QUuid newId = QUuid::createUuid();
-    curft.addPerson(newId.toString().toStdString());
+    curft->addPerson(newId.toString().toStdString());
 }
 
 /*
@@ -47,8 +42,26 @@ void Model::delPerson() {
  *        field  -
  *        data   -
  */
-void Model::editPerson() {
-    curSelPerson->p->setNames();
+void Model::editPerson(vector<string> names, string sex,
+                       vector<string> birthDate, vector<string> birthAddr,
+                       string notes, vector<string> deathDate,
+                       vector<string> deathAddr, bool living) {
+    if (curSelPerson) {
+        curSelPerson->template setNames<vector<string>>(names);
+        curSelPerson->template setSex<string>(sex);
+        curSelPerson->template setBirthAddr<vector<string>>(birthAddr);
+        curSelPerson->template setBirthDate<vector<string>>(birthDate);
+        curSelPerson->template setDeathAddr<vector<string>>(deathAddr);
+        curSelPerson->template setDeathDate<vector<string>>(deathDate);
+        if (living) {
+            curSelPerson->template setLivingStatus<string>("Alive");
+        } else {
+            curSelPerson->template setLivingStatus<string>("Deceased/Unknown");
+        }
+        curSelPerson->template setNotes<string>(notes);
+    } else {
+        throw runtime_error( "Model::editPerson: No current selected person to edit, we shouldn't be here!" );
+    }
 }
 
 /*
@@ -93,8 +106,29 @@ void Model::saveTreeState() {
  */
 bool Model::isTreeOpen() {
     return false;
-    //return (curft != NULL);
+    //return (curft != nullptr);
+    //if (!curft) return false;
+    //else return true;
 }
+
+/**
+ * @brief Checks if there is a currently selected person.
+ */
+bool Model::isCurSelPerson() {
+    return false;
+}
+
+/**
+ * @brief Cleans up all allocations in environment in
+ *      event of application shutdown.
+ */
+void Model::cleanUp() {
+    delete curft;
+    // End fileio streams
+    curSelPerson = nullptr;
+}
+
+
 
 ///////////////////////
 //

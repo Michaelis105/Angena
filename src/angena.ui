@@ -97,7 +97,7 @@
              </size>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tabMainInfo">
              <property name="sizePolicy">
@@ -636,9 +636,7 @@
      <string>File</string>
     </property>
     <addaction name="actionNewFamily"/>
-    <addaction name="actionNew_Person"/>
     <addaction name="actionOpen"/>
-    <addaction name="actionRecent_Files"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
     <addaction name="actionPrint"/>

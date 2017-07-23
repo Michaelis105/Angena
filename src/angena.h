@@ -9,6 +9,9 @@
 #include <QMainWindow>
 #include <QFileDialog>
 
+#include <vector>
+#include <string>
+
 #include "model/model.h"
 #include "dialogs/dialog.h"
 
@@ -29,13 +32,12 @@ class Angena : public QMainWindow
         Dialog d;
 
     private slots:
-        void on_actionNew_triggered();
+        void on_actionNewFamily_triggered();
         void on_actionOpen_triggered();
         void on_actionSave_triggered();
         void on_actionSave_As_triggered();
         void on_actionAbout_triggered();
         void on_actionClose_triggered();
-        void on_actionRecent_Files_triggered();
         void on_actionPrint_triggered();
         void on_actionExit_triggered();
         void on_actionUndo_triggered();
@@ -45,6 +47,7 @@ class Angena : public QMainWindow
         void redrawGraphicsView();
         void clearGraphicsView();
         void on_pushButtonSavePerson_clicked();
+
 };
 
 #endif // ANGENA_H

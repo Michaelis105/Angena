@@ -10,6 +10,8 @@ typedef std::pair<string, PersonNode*> idpnPair;
 
 FamilyTree::FamilyTree() { }
 
+FamilyTree::~FamilyTree() { }
+
 /**
  * @brief Gets total number of person nodes counted in family tree
  * @return 0-65535

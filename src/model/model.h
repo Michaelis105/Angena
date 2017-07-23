@@ -8,6 +8,7 @@
 
 #include <QUuid>
 #include <vector>
+#include <stdexcept>
 
 #include "familyTree.h"
 #include "fileIO.h"
@@ -16,16 +17,18 @@ class Model
 {
     private:
         PersonNode * curSelPerson;
-        FamilyTree curft;
+        FamilyTree * curft;
         FileIO fio;
         //personNode * clipboard;
 
     public:
         Model();
-        ~Model();
         void addPerson();
         void delPerson();
-        void editPerson();
+        void editPerson(vector<string> names, string sex,
+                        vector<string> birthDate, vector<string> birthAddr,
+                        string notes, vector<string> deathDate,
+                        vector<string> deathAddr, bool living);
         void connectPerson();
         void disconnectPerson();
         void undo();
@@ -34,13 +37,8 @@ class Model
         void openTreeState();
         void saveTreeState();
         bool isTreeOpen();
-        /*
-        Name serializeName();
-        Addr serializeBirthAddr();
-        PDate serializeBirthDate();
-        Addr serializeDeathAddr();
-        PDate serializeDeathDate();
-        */
+        bool isCurSelPerson();
+        void cleanUp();
 };
 
 #endif // MODEL_H

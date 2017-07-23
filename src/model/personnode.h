@@ -31,21 +31,21 @@ class PersonNode
         PersonNode(string newId, PersonNode * f, PersonNode * m);
         ~PersonNode();
         template <class nameType>
-        void setNames(nameType* newName);
+        void setNames(nameType newName);
         template <class sexType>
-        void setSex(sexType* newSex);
+        void setSex(sexType newSex);
         template <class addrType>
-        void setBirthAddr(addrType* newBAddr);
+        void setBirthAddr(addrType newBAddr);
         template <class addrType>
-        void setDeathAddr(addrType* newDAddr);
+        void setDeathAddr(addrType newDAddr);
         template <class dateType>
-        void setBirthDate(dateType* newBDate);
+        void setBirthDate(dateType newBDate);
         template <class dateType>
-        void setDeathDate(dateType* newDDate);
+        void setDeathDate(dateType newDDate);
         template <class livingStateType>
-        void setLivingStatus(livingStateType* state);
+        void setLivingStatus(livingStateType state);
         template <class noteType>
-        void setNotes(noteType* newNote);
+        void setNotes(noteType newNote);
 
         template <class nameType>
         nameType getNames();
@@ -76,7 +76,7 @@ class PersonNode
  * Sets person's name.
  */
 template <class nameType>
-void PersonNode::setNames(nameType* newName)
+void PersonNode::setNames(nameType newName)
 {
     p->setNames(newName);
 }
@@ -85,7 +85,7 @@ void PersonNode::setNames(nameType* newName)
  * Sets person's name.
  */
 template <class sexType>
-void PersonNode::setSex(sexType* newSex)
+void PersonNode::setSex(sexType newSex)
 {
     p->setSex(newSex);
 }
@@ -94,7 +94,7 @@ void PersonNode::setSex(sexType* newSex)
  * Sets person's birth address.
  */
 template <class addrType>
-void PersonNode::setBirthAddr(addrType* newBAddr)
+void PersonNode::setBirthAddr(addrType newBAddr)
 {
     p->setBirthAddr(newBAddr);
 }
@@ -103,7 +103,7 @@ void PersonNode::setBirthAddr(addrType* newBAddr)
  * Sets person's death address.
  */
 template <class addrType>
-void PersonNode::setDeathAddr(addrType* newDAddr)
+void PersonNode::setDeathAddr(addrType newDAddr)
 {
     p->setDeathAddr(newDAddr);
 }
@@ -112,7 +112,7 @@ void PersonNode::setDeathAddr(addrType* newDAddr)
  * Sets person's birth date.
  */
 template <class dateType>
-void PersonNode::setBirthDate(dateType* newBDate)
+void PersonNode::setBirthDate(dateType newBDate)
 {
     p->setBirthDate(newBDate);
 }
@@ -121,7 +121,7 @@ void PersonNode::setBirthDate(dateType* newBDate)
  * Sets person's death date.
  */
 template <class dateType>
-void PersonNode::setDeathDate(dateType* newDDate)
+void PersonNode::setDeathDate(dateType newDDate)
 {
     p->setDeathDate(newDDate);
 }
@@ -130,7 +130,7 @@ void PersonNode::setDeathDate(dateType* newDDate)
  * Sets person's living status.
  */
 template <class livingStateType>
-void PersonNode::setLivingStatus(livingStateType* state)
+void PersonNode::setLivingStatus(livingStateType state)
 {
     p->setLivingStatus(state);
 }
@@ -139,7 +139,7 @@ void PersonNode::setLivingStatus(livingStateType* state)
  * Sets person's notes.
  */
 template <class noteType>
-void PersonNode::setNotes(noteType * newNote)
+void PersonNode::setNotes(noteType newNote)
 {
     p->setNotes(newNote);
 }

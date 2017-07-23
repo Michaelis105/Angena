@@ -4,7 +4,7 @@
 // Description : Controller for primary UI window.
 //================================================
 #include <QDebug>
-
+#include <string>
 #include "angena.h"
 #include "ui_angena.h"
 
@@ -26,7 +26,7 @@ Angena::~Angena() { delete ui; }
 /**
  * @brief Creates new family tree on click.
  */
-void Angena::on_actionNew_triggered()
+void Angena::on_actionNewFamily_triggered()
 {
     qDebug() << "Creating new tree.";
 
@@ -108,20 +108,6 @@ void Angena::on_actionClose_triggered()
 }
 
 /**
- * @brief Opens previously opened tree states on click.
- */
-void Angena::on_actionRecent_Files_triggered()
-{
-    // TODO: How should I keep track of recently opened file during runtime and after closing?
-    // If there were not any recently opened file, then throw an error (change return type?).
-    // The menu link should not have been enabled in the first place.
-    qDebug() << "Opening recent file";
-    // Open the tree state, update model tree state.
-    // Update display
-    // NOTE: Method not implemented!
-}
-
-/**
  * @brief Prints current tree state visualization on click.
  */
 void Angena::on_actionPrint_triggered()
@@ -138,8 +124,9 @@ void Angena::on_actionExit_triggered()
 {
     qDebug() << "Shutting application down.";
     // TODO: Prompt save if tree state has changed.
-    close();
     // TODO: Destroy stuff as needed.
+    close();
+
 }
 
 
@@ -206,44 +193,59 @@ void Angena::on_actionRemove_Person_triggered()
  */
 void Angena::on_pushButtonSavePerson_clicked()
 {
-    // Is there a selected person?
-    // What are the changes?
-    // Commit each change to person via model.
-    QString fn = ui->lineEditFirstName->text();
-    QString mn = ui->lineEditMiddleName->text();
-    QString ln = ui->lineEditLastName->text();
-    QString nn = ui->lineEditNickName->text();
-    QString tt = ui->lineEditTitle->text();
+    vector<string> names = {
+        ui->lineEditTitle->text().toStdString(),
+        ui->lineEditFirstName->text().toStdString(),
+        ui->lineEditMiddleName->text().toStdString(),
+        ui->lineEditLastName->text().toStdString(),
+        ui->lineEditNickName->text().toStdString(),
+        ui->comboBoxSuffix->itemData(ui->comboBoxSuffix->currentIndex()).toString().toStdString()
+    };
 
-    QVariant sex = ui->comboBoxSex->itemData(ui->comboBoxSex->currentIndex());
-    QVariant suf = ui->comboBoxSuffix->itemData(ui->comboBoxSuffix->currentIndex());
+    string sex = ui->comboBoxSex->itemData(ui->comboBoxSex->currentIndex()).toString().toStdString();
 
-    int bm = ui->spinBoxBirthMonth->value();
-    int bd = ui->spinBoxBirthDay->value();
-    int by = ui->spinBoxBirthYear->value();
+    vector<string> birthDate = {
+        to_string(ui->spinBoxBirthMonth->value()),
+        to_string(ui->spinBoxBirthDay->value()),
+        to_string(ui->spinBoxBirthYear->value())
+    };
+    vector<string> birthAddr = {
+        ui->lineEditBirthAddress->text().toStdString(),
+        ui->lineEditBirthStProv->text().toStdString(),
+        ui->lineEditBirthCity->text().toStdString(),
+        ui->lineEditBirthCountry->text().toStdString(),
+        ui->lineEditBirthZipCode->text().toStdString()
+    };
 
-    QString bad = 0ui->lineEditBirthAddress->text();
-    QString bco = ui->lineEditBirthCountry->text();
-    QString bct = ui->lineEditBirthCity->text();
-    QString bsp = ui->lineEditBirthStProv->text();
-    QString bzc = ui->lineEditBirthZipCode->text();
+    string nt = ui->plainTextEditNotes->toPlainText().toStdString();
 
-    int dm = ui->spinBoxDeathMonth->value();
-    int dd = ui->spinBoxDeathDay->value();
-    int dy = ui->spinBoxDeathYear->value();
+    vector<string> deathDate = {
+        to_string(ui->spinBoxDeathMonth->value()),
+        to_string(ui->spinBoxDeathDay->value()),
+        to_string(ui->spinBoxDeathYear->value())
+    };
+    vector<string> deathAddr = {
+        ui->lineEditDeathAddress->text().toStdString(),
+        ui->lineEditDeathStProv->text().toStdString(),
+        ui->lineEditDeathCity->text().toStdString(),
+        ui->lineEditDeathCountry->text().toStdString(),
+        ui->lineEditDeathZipCode->text().toStdString()
+    };
 
     bool alive = ui->radioButtonAlive->isChecked();
     bool deadunk = ui->radioButtonDeadUnk->isChecked();
+    bool living = true; // Default to true for now
+    if (alive == deadunk) {
+        qDebug() << "UI Error: Person cannot be both alive and dead/unknown!";
+    } else if (!alive && deadunk) {
+        living = false;
+    } else if (alive && !deadunk) {
+        living = true;
+    } else {
+        qDebug() << "UI Error: Error identifying living state!";
+    }
 
-    QString dad = ui->lineEditDeathAddress->text();
-    QString dco = ui->lineEditDeathCountry->text();
-    QString dct = ui->lineEditDeathCity->text();
-    QString dsp = ui->lineEditDeathStProv->text();
-    QString dzc = ui->lineEditDeathZipCode->text();
-
-    QString nt = ui->plainTextEditNotes->toPlainText();
-
-    // TODO: Send to model.
+    m.editPerson(names, sex, birthDate, birthAddr, nt, deathDate, deathAddr, living);
 }
 
 // TODO: Method to update all widgets after new person is selected.

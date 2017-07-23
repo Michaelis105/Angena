@@ -18,6 +18,7 @@ class FamilyTree
         unsigned int totalPersonNodes;
     public:
         FamilyTree();
+        ~FamilyTree();
         unsigned int getTotalPersonNodes();
         void addPerson(string newId);
         void delPerson(string id);
