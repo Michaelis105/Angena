@@ -1,3 +1,8 @@
+//======================================================
+// Name        : dialogsaveconfirmation.h
+// Author      : Michael Louie
+// Description : Header for the save confirmation dialog
+//======================================================
 #ifndef DIALOGSAVECONFIRMATION_H
 #define DIALOGSAVECONFIRMATION_H
 
@@ -14,15 +19,16 @@ class DialogSaveConfirmation : public QDialog
     public:
         explicit DialogSaveConfirmation(QWidget *parent = 0);
         ~DialogSaveConfirmation();
+        unsigned char saveAction;
 
-private slots:
-    void on_pushButtonSave_clicked();
-    void on_pushButtonSaveAs_clicked();
-    void on_pushButtonDoNotSave_clicked();
-    void on_pushButtonCancel_clicked();
+    private slots:
+        void on_pushButtonSave_clicked();
+        void on_pushButtonSaveAs_clicked();
+        void on_pushButtonDoNotSave_clicked();
+        void on_pushButtonCancel_clicked();
 
-private:
-        Ui::DialogSaveConfirmation *ui;
-};
+    private:
+            Ui::DialogSaveConfirmation *ui;
+    };
 
 #endif // DIALOGSAVECONFIRMATION_H

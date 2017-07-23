@@ -34,12 +34,9 @@ void Angena::on_actionNewFamily_triggered()
     if (m.isTreeOpen()) {
         d.showSaveConfirmationDialog();
     }
-
-    d.showNewFamilyTreeDialog();
-    // If has info, then overwrite model with new open tree state and clear/update view
-    // Else do nothing.
-
-    Angena::clearGraphicsView();
+    m.cleanUp();
+    m.initializeNewFamilyTree();
+    clearGraphicsView();
 }
 
 /**

@@ -23,6 +23,7 @@ class Model
 
     public:
         Model();
+        void initializeNewFamilyTree();
         void addPerson();
         void delPerson();
         void editPerson(vector<string> names, string sex,

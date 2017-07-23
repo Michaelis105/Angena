@@ -6,18 +6,16 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 #include "dialogabout.h"
-#include "dialognewfamily.h"
 #include "dialogsaveconfirmation.h"
 
 class Dialog
 {
-    private:
-        DialogAbout da;
     public:
         Dialog();
+        DialogAbout da;
+        DialogSaveConfirmation dsc;
         void showAboutDialog();
         void showSaveConfirmationDialog();
-        void showNewFamilyTreeDialog();
 };
 
 #endif // DIALOG_H

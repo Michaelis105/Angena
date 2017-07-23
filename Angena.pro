@@ -26,7 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/dialogs/dialog.cpp \
     src/dialogs/dialogabout.cpp \
-    src/dialogs/dialognewfamily.cpp \
     src/dialogs/dialogsaveconfirmation.cpp \
     src/model/familytree.cpp \
     src/model/fileio.cpp \
@@ -42,7 +41,6 @@ SOURCES += \
 HEADERS += \
     src/dialogs/dialog.h \
     src/dialogs/dialogabout.h \
-    src/dialogs/dialognewfamily.h \
     src/dialogs/dialogsaveconfirmation.h \
     src/model/familytree.h \
     src/model/fileio.h \
@@ -56,7 +54,6 @@ HEADERS += \
 
 FORMS += \
     src/dialogs/dialogabout.ui \
-    src/dialogs/dialognewfamily.ui \
     src/dialogs/dialogsaveconfirmation.ui \
     src/angena.ui
 

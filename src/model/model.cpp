@@ -19,6 +19,10 @@ Model::Model() {
 //
 /////////////////////////
 
+void Model::initializeNewFamilyTree() {
+     curft = new FamilyTree();
+}
+
 /**
  * @brief Adds a 'blank' person to family tree.
  */

@@ -7,24 +7,15 @@
 
 Dialog::Dialog() { }
 
-void Dialog::showAboutDialog()
-{
-    DialogAbout da;
-    da.setModal(true);
-    da.exec();
-}
-
 void Dialog::showSaveConfirmationDialog()
 {
-    DialogSaveConfirmation dsc;
     dsc.setModal(true);
     dsc.exec();
 }
 
-void Dialog::showNewFamilyTreeDialog()
+void Dialog::showAboutDialog()
 {
-    DialogNewFamily dnft;
-    dnft.setModal(true);
-    dnft.exec();
+    da.setModal(true);
+    da.exec();
 }
 

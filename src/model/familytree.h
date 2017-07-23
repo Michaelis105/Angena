@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <unordered_map>
 #include <vector>
-
+#include <string>
 #include "personnode.h"
 
 class FamilyTree
@@ -16,6 +16,7 @@ class FamilyTree
     private:
         std::unordered_map<string, PersonNode*> people;
         unsigned int totalPersonNodes;
+
     public:
         FamilyTree();
         ~FamilyTree();
