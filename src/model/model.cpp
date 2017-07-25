@@ -5,21 +5,11 @@
 //==========================================================================
 #include "model.h"
 
-struct PersonDetails {
-    vector<string> names;
-    string sex;
-    vector<string> birthDate;
-    vector<string> birthAddr;
-    string notes;
-    vector<string> deathDate;
-    vector<string> deathAddr;
-    bool living;
-} tempStore;
-
 Model::Model() {
     FamilyTree * curft;
     FileIO fio;
     PersonNode * curSelPerson = nullptr;
+
     //personNode * clipboard = nullptr;
     //std::deque<> history;
 }
@@ -64,11 +54,10 @@ void Model::delPerson() {
     hasChanged = true;
 }
 
-/*
- * Changes the information pertaining to a specific person..
- * Input: person -
- *        field  -
- *        data   -
+/**
+ * @brief Changes the information pertaining to a specific person.
+ * @param Serialized by view to be forwarded to selected person.
+ *        See respective classes for vector-element ordering
  */
 void Model::editPerson(vector<string> names, string sex,
                        vector<string> birthDate, vector<string> birthAddr,
@@ -81,11 +70,7 @@ void Model::editPerson(vector<string> names, string sex,
         curSelPerson->template setBirthDate<vector<string>>(birthDate);
         curSelPerson->template setDeathAddr<vector<string>>(deathAddr);
         curSelPerson->template setDeathDate<vector<string>>(deathDate);
-        if (living) {
-            curSelPerson->template setLivingStatus<string>("Alive");
-        } else {
-            curSelPerson->template setLivingStatus<string>("Deceased/Unknown");
-        }
+        curSelPerson->template setLivingStatus<string>((living)? "Alive" : "Deceased/Unknown");
         curSelPerson->template setNotes<string>(notes);
     } else {
         throw runtime_error( "Model::editPerson: No current selected person to edit, we shouldn't be here!" );
@@ -151,13 +136,66 @@ void Model::cleanUp() {
  */
 void Model::updatePersonTempStore() {
     if (curSelPerson != nullptr) {
-        //curSelPerson->getNames();
-
+        ts.names = serializeName(curSelPerson->getNames<PersonName*>());
+        ts.sex = *(curSelPerson->getSex<string*>());
+        ts.birthDate = serializeDate(curSelPerson->getBirthDate<Date*>());
+        ts.birthAddr = serializeAddress(curSelPerson->getBirthAddr<PersonAddress*>());
+        ts.deathDate = serializeDate(curSelPerson->getDeathDate<Date*>());
+        ts.deathAddr = serializeAddress(curSelPerson->getDeathAddr<PersonAddress*>());
+        ts.notes = *(curSelPerson->getNotes<string*>());
+        ts.living = (*(curSelPerson->getLivingStatus<string*>()) == "Alive") ? true : false;
     } else {
         throw runtime_error("Model::updatePersonTempStore(): "
                             "Cannot update temp storage with "
                             "null current selected person!");
     }
+}
+
+/**
+ * @brief Converts person name parts to string vector
+ * @param name PersonName
+ * @return string vector
+ */
+vector<string> Model::serializeName(PersonName* name) {
+    vector<string> n = {
+        name->getTitle(),
+        name->getFirstName(),
+        name->getMiddleName(),
+        name->getLastName(),
+        name->getNickName(),
+        name->getSuffix()
+    };
+    return n;
+}
+
+/**
+ * @brief Converts person date parts to string vector
+ * @param name Date
+ * @return string vector
+ */
+vector<int> Model::serializeDate(Date* date) {
+    vector<int> d = {
+        date->getMonth(),
+        date->getDay(),
+        date->getYear()
+    };
+    return d;
+}
+
+/**
+ * @brief Converts person date parts to string vector
+ * @param name Date
+ * @return string vector
+ */
+vector<string> Model::serializeAddress(PersonAddress* addr) {
+    vector<string> a = {
+        addr->getHomeAddr(),
+        addr->getStateProv(),
+        addr->getCity(),
+        addr->getCountry(),
+        addr->getZipCode()
+    };
+    return a;
 }
 
 /////////////////////

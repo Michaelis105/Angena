@@ -13,6 +13,21 @@ Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
     ui->setupUi(this);
     Model m;
     Dialog d;
+
+    // NOTE: There are a lot more suffixes out there!
+    QStringList suffixes = QStringList()<<tr("II")<<tr("III")<<tr("IV")<<tr("V")<<tr("VI")<<tr("Jr.")<<tr("Sr.");
+    ui->comboBoxSuffix->addItems(suffixes);
+
+    // NOTE: There are X (Turner's), XXY (Klinefelter), XYY, and XXXY as well. Needs more research.
+    QStringList sexes = QStringList()<<tr("Male")<<tr("Female");
+    ui->comboBoxSex->addItems(sexes);
+
+    ui->spinBoxBirthDay->setRange(0,31);
+    ui->spinBoxBirthMonth->setRange(0,12);
+    ui->spinBoxBirthYear->setRange(-3000,3000);
+    ui->spinBoxDeathDay->setRange(0,31);
+    ui->spinBoxDeathMonth->setRange(0,12);
+    ui->spinBoxDeathYear->setRange(-3000,3000);
 }
 
 Angena::~Angena() { delete ui; }
@@ -278,9 +293,40 @@ void Angena::on_pushButtonSavePerson_clicked()
  */
 void Angena::updatePersonDetails() {
     m.updatePersonTempStore();
-    // TODO: Implement
-}
+    ui->lineEditTitle->setText(QString::fromStdString(m.ts.names.at(0)));
+    ui->lineEditFirstName->setText(QString::fromStdString(m.ts.names.at(1)));
+    ui->lineEditMiddleName->setText(QString::fromStdString(m.ts.names.at(2)));
+    ui->lineEditLastName->setText(QString::fromStdString(m.ts.names.at(3)));
+    ui->lineEditNickName->setText(QString::fromStdString(m.ts.names.at(4)));
+    ui->comboBoxSuffix->setCurrentIndex(ui->comboBoxSuffix->findData(QString::fromStdString(m.ts.names.at(5))));
 
+    ui->comboBoxSex->setCurrentIndex(ui->comboBoxSex->findData(QString::fromStdString(m.ts.sex)));
+
+    ui->spinBoxBirthMonth->setValue(m.ts.birthDate.at(0));
+    ui->spinBoxBirthDay->setValue(m.ts.birthDate.at(1));
+    ui->spinBoxBirthYear->setValue(m.ts.birthDate.at(2));
+
+    ui->lineEditBirthAddress->setText(QString::fromStdString(m.ts.birthAddr.at(0)));
+    ui->lineEditBirthStProv->setText(QString::fromStdString(m.ts.birthAddr.at(1)));
+    ui->lineEditBirthCity->setText(QString::fromStdString(m.ts.birthAddr.at(2)));
+    ui->lineEditBirthCountry->setText(QString::fromStdString(m.ts.birthAddr.at(3)));
+    ui->lineEditBirthZipCode->setText(QString::fromStdString(m.ts.birthAddr.at(4)));
+
+    ui->plainTextEditNotes->document()->setPlainText(QString::fromStdString(m.ts.notes));
+
+    ui->spinBoxDeathMonth->setValue(m.ts.deathDate.at(0));
+    ui->spinBoxDeathDay->setValue(m.ts.deathDate.at(1));
+    ui->spinBoxDeathYear->setValue(m.ts.deathDate.at(2));
+
+    ui->lineEditDeathAddress->setText(QString::fromStdString(m.ts.deathAddr.at(0)));
+    ui->lineEditDeathStProv->setText(QString::fromStdString(m.ts.deathAddr.at(1)));
+    ui->lineEditDeathCity->setText(QString::fromStdString(m.ts.deathAddr.at(2)));
+    ui->lineEditDeathCountry->setText(QString::fromStdString(m.ts.deathAddr.at(3)));
+    ui->lineEditDeathZipCode->setText(QString::fromStdString(m.ts.deathAddr.at(4)));
+
+    ui->radioButtonAlive->setChecked(m.ts.living);
+    ui->radioButtonDeadUnk->setChecked(!m.ts.living);
+}
 ////////////////////
 //
 //  Internal Actions

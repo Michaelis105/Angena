@@ -13,6 +13,18 @@
 #include "familyTree.h"
 #include "fileIO.h"
 
+class TempStore {
+    public:
+        vector<string> names;
+        string sex;
+        vector<int> birthDate;
+        vector<string> birthAddr;
+        string notes;
+        vector<int> deathDate;
+        vector<string> deathAddr;
+        bool living;
+};
+
 class Model
 {
     private:
@@ -21,8 +33,12 @@ class Model
         FileIO fio;
         //personNode * clipboard;
         bool hasChanged;
+        vector<string> serializeName(PersonName* name);
+        vector<int> serializeDate(Date* date);
+        vector<string> serializeAddress(PersonAddress* addr);
 
     public:
+        TempStore ts;
         Model();
         bool isChanged();
         void initializeNewFamilyTree();
@@ -45,6 +61,7 @@ class Model
         PersonNode* getCurSelPerson();
         void cleanUp();
         void updatePersonTempStore();
+
 };
 
 #endif // MODEL_H
