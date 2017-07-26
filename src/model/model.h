@@ -12,6 +12,7 @@
 
 #include "familyTree.h"
 #include "fileIO.h"
+#include "interpreter.h"
 
 class TempStore {
     public:
@@ -31,6 +32,7 @@ class Model
         PersonNode * curSelPerson;
         FamilyTree * curft;
         FileIO fio;
+        Interpreter intp;
         //personNode * clipboard;
         bool hasChanged;
         vector<string> serializeName(PersonName* name);

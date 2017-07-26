@@ -6,10 +6,8 @@
 #include "model.h"
 
 Model::Model() {
-    FamilyTree * curft;
-    FileIO fio;
+    FamilyTree * curft = nullptr;
     PersonNode * curSelPerson = nullptr;
-
     //personNode * clipboard = nullptr;
     //std::deque<> history;
 }
