@@ -9,11 +9,14 @@
 #include <QMainWindow>
 #include <QFileDialog>
 
+
 #include <vector>
 #include <string>
 
 #include "model/model.h"
 #include "dialogs/dialog.h"
+
+#include "ui_angena.h"
 
 namespace Ui {
     class Angena;
@@ -31,6 +34,9 @@ class Angena : public QMainWindow
         Model m;
         Dialog d;
         bool processSaveConfirmationDialog();
+        void initializeView();
+        void initializeModel();
+        QGraphicsScene *scene;
 
     private slots:
         void on_actionNewFamily_triggered();

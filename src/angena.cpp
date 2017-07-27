@@ -5,14 +5,31 @@
 //================================================
 #include <QDebug>
 #include <string>
+
 #include "angena.h"
-#include "ui_angena.h"
 
 Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
 {
+    initializeView();
+    initializeModel();
+}
+
+/**
+ * @brief Initialize view components at start up.
+ */
+void Angena::initializeView() {
     ui->setupUi(this);
-    Model m;
-    Dialog d;
+
+    scene = new QGraphicsScene(this);
+    ui->angenaGraphicsView->setScene(scene);
+    QGraphicsEllipseItem * e;
+    QGraphicsRectItem * r;
+
+    QBrush redBrush(Qt::red);
+    QBrush blueBrush(Qt::blue);
+    QPen blackPen(Qt::black);
+    blackPen.setWidth(6);
+    e = scene->addEllipse(10,10,100,100, blackPen, redBrush);
 
     // NOTE: There are a lot more suffixes out there!
     QStringList suffixes = QStringList()<<tr("II")<<tr("III")<<tr("IV")<<tr("V")<<tr("VI")<<tr("Jr.")<<tr("Sr.");
@@ -28,6 +45,13 @@ Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
     ui->spinBoxDeathDay->setRange(0,31);
     ui->spinBoxDeathMonth->setRange(0,12);
     ui->spinBoxDeathYear->setRange(-3000,3000);
+}
+
+/**
+ * @brief Initialize model components at start up.
+ */
+void Angena::initializeModel() {
+    // Nothing to initialize for the model at the moment.
 }
 
 Angena::~Angena() { delete ui; }
