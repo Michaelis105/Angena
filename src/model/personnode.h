@@ -5,12 +5,18 @@
 //================================-==============================
 #ifndef PERSONNODE_H
 #define PERSONNODE_H
-
+#include <QPainter>
+#include <QGraphicsItem>
+#include <QStyleOption>
 #include <vector>
 #include <stdexcept>
 #include "person.h"
+#include "../view/edge.h"
 
-class PersonNode
+class FamilyTreeGraphicsView;
+//class Edge;
+
+class PersonNode : public QGraphicsItem
 {
     private:
 
@@ -25,11 +31,27 @@ class PersonNode
         PersonNode * mother;
         PersonNode * father;
         vector<PersonNode *> offspring;
+        void setConfigurations();
+
+        QPointF newPos;
 
     public:
         PersonNode(string newId);
         PersonNode(string newId, PersonNode * f, PersonNode * m);
+        QRectF boundingRect() const;
+        void paint(QPainter * painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
         ~PersonNode();
+        void addEdge(Edge *edge);
+        void removeEdge(Edge *edge);
+        QList<Edge *> edgeList;
+
+        void setFather(PersonNode * f);
+        void setMother(PersonNode * m);
+        PersonNode * getFather();
+        PersonNode * getMother();
+        void addOffspring(PersonNode * os);
+        void removeOffspring(PersonNode * os);
+
         template <class nameType>
         void setNames(nameType newName);
         template <class sexType>
@@ -64,12 +86,11 @@ class PersonNode
         template <class noteType>
         noteType getNotes();
 
-        void setFather(PersonNode * f);
-        void setMother(PersonNode * m);
-        PersonNode * getFather();
-        PersonNode * getMother();
-        void addOffspring(PersonNode * os);
-        void removeOffspring(PersonNode * os);
+    protected:
+        QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+        void mousePressEvent(QGraphicsSceneMouseEvent *event);
+        void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+
 };
 
 /**

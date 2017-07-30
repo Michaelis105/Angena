@@ -5,7 +5,6 @@
 //======================================================
 #ifndef DIALOGSAVECONFIRMATION_H
 #define DIALOGSAVECONFIRMATION_H
-
 #include <QDialog>
 
 namespace Ui {

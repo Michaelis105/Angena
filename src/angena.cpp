@@ -4,8 +4,6 @@
 // Description : Controller for primary UI window.
 //================================================
 #include <QDebug>
-#include <string>
-
 #include "angena.h"
 
 Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
@@ -20,16 +18,8 @@ Angena::Angena(QWidget *parent) : QMainWindow(parent), ui(new Ui::Angena)
 void Angena::initializeView() {
     ui->setupUi(this);
 
-    scene = new QGraphicsScene(this);
-    ui->angenaGraphicsView->setScene(scene);
-    QGraphicsEllipseItem * e;
-    QGraphicsRectItem * r;
-
-    QBrush redBrush(Qt::red);
-    QBrush blueBrush(Qt::blue);
-    QPen blackPen(Qt::black);
-    blackPen.setWidth(6);
-    e = scene->addEllipse(10,10,100,100, blackPen, redBrush);
+    ftgv = new FamilyTreeGraphicsView();
+    ui->horizontalLayoutMainFrame->addWidget(ftgv);
 
     // NOTE: There are a lot more suffixes out there!
     QStringList suffixes = QStringList()<<tr("II")<<tr("III")<<tr("IV")<<tr("V")<<tr("VI")<<tr("Jr.")<<tr("Sr.");
@@ -54,7 +44,10 @@ void Angena::initializeModel() {
     // Nothing to initialize for the model at the moment.
 }
 
-Angena::~Angena() { delete ui; }
+Angena::~Angena() {
+    delete ftgv;
+    delete ui;
+}
 
 /////////////////////////////////
 //
@@ -372,7 +365,6 @@ void Angena::redrawGraphicsView()
 void Angena::clearGraphicsView()
 {
     qDebug() << "Clear!";
-    // Clear graphics view.
 }
 
 

@@ -5,7 +5,6 @@
 //===============================
 #ifndef DATE_H
 #define DATE_H
-
 #include <stdexcept>
 
 class Date

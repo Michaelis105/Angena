@@ -5,18 +5,14 @@
 //===============================================
 #ifndef ANGENA_H
 #define ANGENA_H
-
 #include <QMainWindow>
 #include <QFileDialog>
-
-
 #include <vector>
 #include <string>
-
+#include "ui_angena.h"
 #include "model/model.h"
 #include "dialogs/dialog.h"
-
-#include "ui_angena.h"
+#include "view/familytreegraphicsview.h"
 
 namespace Ui {
     class Angena;
@@ -33,10 +29,10 @@ class Angena : public QMainWindow
         Ui::Angena *ui;
         Model m;
         Dialog d;
+        FamilyTreeGraphicsView * ftgv;
         bool processSaveConfirmationDialog();
         void initializeView();
         void initializeModel();
-        QGraphicsScene *scene;
 
     private slots:
         void on_actionNewFamily_triggered();

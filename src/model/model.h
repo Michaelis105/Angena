@@ -5,11 +5,9 @@
 //==========================================
 #ifndef MODEL_H
 #define MODEL_H
-
 #include <QUuid>
 #include <vector>
 #include <stdexcept>
-
 #include "familyTree.h"
 #include "fileIO.h"
 #include "interpreter.h"

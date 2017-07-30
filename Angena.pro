@@ -37,7 +37,9 @@ SOURCES += \
     src/model/personname.cpp \
     src/model/personaddress.cpp \
     src/model/date.cpp \
-    src/model/interpreter.cpp
+    src/model/interpreter.cpp \
+    src/view/familytreegraphicsview.cpp \
+    src/view/edge.cpp
 
 HEADERS += \
     src/dialogs/dialog.h \
@@ -52,7 +54,9 @@ HEADERS += \
     src/model/personname.h \
     src/model/personaddress.h \
     src/model/date.h \
-    src/model/interpreter.h
+    src/model/interpreter.h \
+    src/view/familytreegraphicsview.h \
+    src/view/edge.h
 
 FORMS += \
     src/dialogs/dialogabout.ui \
